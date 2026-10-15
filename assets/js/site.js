@@ -126,7 +126,7 @@
       ['Objectifs', v.objectifs.join(', ')], ['Taille', v.taille], ['Options', v.options.join(', ')], ['Délai', v.delai], ['Contact', v.preference && v.nom ? v.nom + ' · ' + v.preference : v.nom]];
     var any = false;
     rows.forEach(function (r) { if (!r[1]) return; any = true; var dt = document.createElement('dt'); dt.textContent = r[0]; var dd = document.createElement('dd'); dd.textContent = r[1]; dl.appendChild(dt); dl.appendChild(dd); });
-    if (!any) { var p = document.createElement('div'); p.className = 'muted'; p.style.gridColumn = '1 / -1'; p.style.fontWeight = '400'; p.textContent = 'Vos réponses s\'affichent ici au fur et à mesure.'; dl.appendChild(p); }
+    if (!any) { var t0 = document.createElement('dt'); t0.textContent = 'Récapitulatif'; var p = document.createElement('dd'); p.className = 'muted'; p.style.fontWeight = '400'; p.textContent = 'Vos réponses s\'affichent ici au fur et à mesure.'; dl.appendChild(t0); dl.appendChild(p); }
   }
   function goStep(n) {
     step = n;
