@@ -1,0 +1,7 @@
+# Seul contact.php est accessible depuis le web
+<FilesMatch ".*">
+  Require all denied
+</FilesMatch>
+<Files "contact.php">
+  Require all granted
+</Files>

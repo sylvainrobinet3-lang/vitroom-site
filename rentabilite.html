@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculateur de rentabilité d&#x27;un site internet — Vitroom</title>
+<meta name="description" content="Combien de nouveaux clients faut-il pour rembourser votre site internet ? Calculez-le en quelques secondes selon votre métier, votre marge et votre budget.">
+<link rel="canonical" href="https://vitroom.be/rentabilite">
+<meta name="theme-color" content="#0B1F3C">
+<link rel="preload" href="/assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/belleza-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=1cacc822">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_BE">
+<meta property="og:site_name" content="Vitroom">
+<meta property="og:title" content="Calculateur de rentabilité d&#x27;un site internet — Vitroom">
+<meta property="og:description" content="Combien de nouveaux clients faut-il pour rembourser votre site internet ? Calculez-le en quelques secondes selon votre métier, votre marge et votre budget.">
+<meta property="og:url" content="https://vitroom.be/rentabilite">
+<meta property="og:image" content="https://vitroom.be/assets/img/og-vitroom.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vitroom, sites internet sur mesure">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculateur de rentabilité d&#x27;un site internet — Vitroom">
+<meta name="twitter:description" content="Combien de nouveaux clients faut-il pour rembourser votre site internet ? Calculez-le en quelques secondes selon votre métier, votre marge et votre budget.">
+<meta name="twitter:image" content="https://vitroom.be/assets/img/og-vitroom.png">
+<script>window.VITROOM_CONFIG = {"email": "sylvainrobinet030308@gmail.com", "phone": "0470 53 70 08", "analyticsToken": "", "turnstileSiteKey": ""};</script>
+<script src="/assets/js/site.js?v=24296c67" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Vitroom, accueil"><img class="on-light" src="/assets/img/logo-vitroom.svg" width="168" height="45" alt=""><img class="on-dark" src="/assets/img/logo-vitroom-blanc.svg" width="168" height="45" alt=""></a>
+    <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="nav">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu
+    </button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="/services" data-route="services">Services</a>
+      <a href="/exemples" data-route="exemples">Exemples</a>
+      <a href="/rentabilite" data-route="rentabilite" aria-current="page">Rentabilité</a>
+      <a href="/diagnostic" data-route="diagnostic">Diagnostic gratuit</a>
+      <a href="/a-propos" data-route="a-propos">À propos</a>
+      <a href="/questions" data-route="questions">Questions</a>
+      <a class="btn btn-primary" href="/devis" data-route="devis">Devis gratuit</a>
+    </nav>
+  </div>
+</header>
+
+<div class="demo-bar" role="region" aria-label="Site d'exemple">
+  <div class="wrap"><span>Site d'exemple réalisé par Vitroom · entreprise fictive</span>
+    <span class="links"><a href="/exemples">← Retour aux exemples</a><a class="go" href="/devis">Je veux un site comme celui-ci</a></span></div>
+</div>
+<main id="main">
+<div class="page" data-page="rentabilite">
+  <section class="page-intro">
+    <div class="wrap">
+      <p class="eyebrow">Calculateur de rentabilité</p>
+      <h1 tabindex="-1">Combien de clients pour rembourser votre site ?</h1>
+      <p class="lead">Entrez vos propres chiffres : le calculateur montre en combien de clients et en combien de temps votre site est remboursé.</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap calc">
+      <div class="form calc-in">
+        <div class="field">
+          <span class="legend">Votre métier <span>(remplit des valeurs indicatives)</span></span>
+          <div class="presets" id="presets" role="group" aria-label="Préréglages par métier"></div>
+        </div>
+        <div class="field">
+          <label for="c-val">Ce que vous rapporte un nouveau client</label>
+          <div class="money"><input id="c-val" type="number" inputmode="numeric" min="0" step="10" value="2500"><span>€</span></div>
+          <p class="hint" id="c-val-hint">Montant moyen d'un chantier ou d'une commande.</p>
+        </div>
+        <div class="field">
+          <label for="c-marge">Votre marge sur ce montant : <b id="c-marge-v">30 %</b></label>
+          <input id="c-marge" class="range" type="range" min="5" max="80" step="5" value="30">
+          <p class="hint">Ce qu'il vous reste une fois le matériel, les salaires et les frais payés.</p>
+        </div>
+        <div class="field">
+          <label for="c-mois">Nouveaux clients par mois grâce au site : <b id="c-mois-v">1</b></label>
+          <input id="c-mois" class="range" type="range" min="0" max="10" step="1" value="1">
+        </div>
+        <div class="field">
+          <label for="c-budget">Budget du site</label>
+          <div class="money"><input id="c-budget" type="number" inputmode="numeric" min="0" step="50" value="1000"><span>€</span></div>
+          <p class="hint">Valeur d'exemple : indiquez le montant de votre devis.</p>
+        </div>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p class="eyebrow" style="color:var(--night-soft)">Résultat</p>
+        <p class="big"><span id="r-clients">2</span> <span id="r-clients-l">clients</span></p>
+        <p class="big-sub">suffisent pour rembourser le site.</p>
+        <dl class="kpis">
+          <div><dt>Bénéfice par nouveau client</dt><dd id="r-profit">750 €</dd></div>
+          <div><dt>Remboursé en</dt><dd id="r-mois">2 mois</dd></div>
+          <div><dt>Gain net sur 12 mois</dt><dd id="r-gain">8 000 €</dd></div>
+        </dl>
+        <div class="months" id="r-months" aria-hidden="true"></div>
+        <p class="months-legend"><span class="sw neg"></span>Le site se rembourse <span class="sw pos"></span>Le site vous rapporte</p>
+        <p class="calc-sentence" id="r-sentence"></p>
+        <a class="btn btn-light" href="/devis">Demander mon devis gratuit</a>
+      </div>
+    </div>
+    <div class="wrap"><p class="muted small-note">Simulation indicative, basée uniquement sur les chiffres que vous entrez. Le nombre de clients qu'un site apporte dépend de votre métier, de votre région et de votre visibilité sur Google.</p></div>
+  </section>
+</div>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="/" aria-label="Vitroom, accueil"><img class="on-dark" src="/assets/img/logo-vitroom-blanc.svg" width="168" height="45" alt=""></a>
+        <p>Sites internet sur mesure pour les artisans, commerçants et indépendants, partout en Belgique.</p>
+      </div>
+      <div><h3>Le site</h3><ul><li><a href="/services">Services</a></li><li><a href="/exemples">Exemples</a></li><li><a href="/a-propos">À propos</a></li><li><a href="/questions">Questions</a></li><li><a href="/devis">Devis gratuit</a></li></ul></div>
+      <div><h3>Contact</h3><ul><li><a href="tel:+32470537008">0470 53 70 08</a></li><li><a href="https://wa.me/32470537008" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:sylvainrobinet030308@gmail.com" style="overflow-wrap:anywhere">sylvainrobinet030308@gmail.com</a></li></ul></div>
+      <div><h3>Outils gratuits</h3><ul><li><a href="/rentabilite">Calculateur de rentabilité</a></li><li><a href="/diagnostic">Diagnostic gratuit</a></li><li>Clients partout en Belgique</li></ul></div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 Vitroom · BCE <span>[à compléter]</span></span>
+      <span class="legal-links"><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a> · <a href="/cgu">Conditions d'utilisation</a> · <a href="#cookies" data-cookie-settings>Gérer les cookies</a></span>
+    </div>
+  </div>
+</footer>
+
+<nav class="mcall" aria-label="Contact rapide">
+  <a class="btn btn-ghost" href="tel:+32470537008">Appeler</a>
+  <a class="btn btn-ghost" href="https://wa.me/32470537008" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-primary" href="/devis">Devis gratuit</a>
+</nav>
+
+<div class="toast" id="demo-toast" role="status" hidden></div>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-live="polite" hidden>
+  <p class="cookie-title" id="cookie-title">Cookies et mesure d'audience</p>
+  <p>Ce site n'utilise aucun cookie publicitaire. Avec votre accord, une mesure d'audience anonyme et sans cookie nous aide à savoir quelles pages sont utiles. <a href="/confidentialite#cookies">En savoir plus</a></p>
+  <div class="cookie-details" id="cookie-details" hidden>
+    <label class="consent"><input type="checkbox" checked disabled> <span><b>Nécessaires</b> : mémoriser votre choix (toujours actif).</span></label>
+    <label class="consent"><input type="checkbox" id="cookie-stats"> <span><b>Mesure d'audience</b> : statistiques anonymes de visite.</span></label>
+    <button class="btn btn-ghost" type="button" id="cookie-save">Enregistrer mes choix</button>
+  </div>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost" type="button" id="cookie-refuse">Refuser</button>
+    <button class="btn btn-ghost" type="button" id="cookie-settings">Paramétrer</button>
+    <button class="btn btn-ghost" type="button" id="cookie-accept">Accepter</button>
+  </div>
+</div>
+</body>
+</html>

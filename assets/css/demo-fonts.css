@@ -1,0 +1,5 @@
+/* Polices des sites d'exemple uniquement */
+@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 700; font-display: swap; src: url("/assets/fonts/bricolage-grotesque-latin-700.woff2") format("woff2"); }
+@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 800; font-display: swap; src: url("/assets/fonts/bricolage-grotesque-latin-800.woff2") format("woff2"); }
+@font-face { font-family: "Italiana"; font-style: normal; font-weight: 400; font-display: swap; src: url("/assets/fonts/italiana-latin.woff2") format("woff2"); }
+@font-face { font-family: "DM Serif Display"; font-style: normal; font-weight: 400; font-display: swap; src: url("/assets/fonts/dm-serif-display-latin.woff2") format("woff2"); }

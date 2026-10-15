@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Studio Lumen, salon de coiffure (site d&#x27;exemple) — Vitroom</title>
+<meta name="description" content="Site d&#x27;exemple réalisé par Vitroom pour un salon de coiffure fictif : tarifs par catégorie, horaires en direct et prise de rendez-vous en ligne en 4 étapes.">
+<link rel="canonical" href="https://vitroom.be/exemple-coiffure">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#0B1F3C">
+<link rel="preload" href="/assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/belleza-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=1cacc822">
+<link rel="stylesheet" href="/assets/css/demo-fonts.css?v=afe49b8b">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_BE">
+<meta property="og:site_name" content="Vitroom">
+<meta property="og:title" content="Studio Lumen, salon de coiffure (site d&#x27;exemple) — Vitroom">
+<meta property="og:description" content="Site d&#x27;exemple réalisé par Vitroom pour un salon de coiffure fictif : tarifs par catégorie, horaires en direct et prise de rendez-vous en ligne en 4 étapes.">
+<meta property="og:url" content="https://vitroom.be/exemple-coiffure">
+<meta property="og:image" content="https://vitroom.be/assets/img/og-vitroom.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vitroom, sites internet sur mesure">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Studio Lumen, salon de coiffure (site d&#x27;exemple) — Vitroom">
+<meta name="twitter:description" content="Site d&#x27;exemple réalisé par Vitroom pour un salon de coiffure fictif : tarifs par catégorie, horaires en direct et prise de rendez-vous en ligne en 4 étapes.">
+<meta name="twitter:image" content="https://vitroom.be/assets/img/og-vitroom.png">
+<script>window.VITROOM_CONFIG = {"email": "sylvainrobinet030308@gmail.com", "phone": "0470 53 70 08", "analyticsToken": "", "turnstileSiteKey": ""};</script>
+<script src="/assets/js/site.js?v=24296c67" defer></script>
+</head>
+<body class="in-demo">
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Vitroom, accueil"><img class="on-light" src="/assets/img/logo-vitroom.svg" width="168" height="45" alt=""><img class="on-dark" src="/assets/img/logo-vitroom-blanc.svg" width="168" height="45" alt=""></a>
+    <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="nav">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu
+    </button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="/services" data-route="services">Services</a>
+      <a href="/exemples" data-route="exemples">Exemples</a>
+      <a href="/rentabilite" data-route="rentabilite">Rentabilité</a>
+      <a href="/diagnostic" data-route="diagnostic">Diagnostic gratuit</a>
+      <a href="/a-propos" data-route="a-propos">À propos</a>
+      <a href="/questions" data-route="questions">Questions</a>
+      <a class="btn btn-primary" href="/devis" data-route="devis">Devis gratuit</a>
+    </nav>
+  </div>
+</header>
+
+<div class="demo-bar" role="region" aria-label="Site d'exemple">
+  <div class="wrap"><span>Site d'exemple réalisé par Vitroom · entreprise fictive</span>
+    <span class="links"><a href="/exemples">← Retour aux exemples</a><a class="go" href="/devis">Je veux un site comme celui-ci</a></span></div>
+</div>
+<main id="main">
+<div class="page demo dc" data-page="demo-coiffure">
+<style>
+.dc { --ink: #13343A; --soft: #4E6669; --bg: #F5F0E8; --card: #FFFDF9; --line: #E2D8C9; --acc: #13434A; --acc2: #C9826B; --tint: #EADFD0;
+  background: var(--bg); color: var(--ink); font-family: "Figtree", system-ui, sans-serif; }
+.dc h3 { font-family: "Figtree", sans-serif; font-weight: 700; }
+.dc .hero { padding-block: 0; }
+.dc h1, .dc h2, .dc h3.t { font-family: "Italiana", "Didot", Georgia, serif; font-weight: 400; letter-spacing: .01em; }
+.dc .w { max-width: 1120px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.dc .hd .w { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding-block: 16px; }
+.dc .brand { font-family: "Italiana", Georgia, serif; font-size: 1.7rem; letter-spacing: .12em; text-transform: uppercase; }
+.dc .menu { display: flex; gap: 4px; }
+.dc .menu button { background: none; border: 0; font: 600 .93rem "Figtree", sans-serif; color: var(--ink); padding: 8px 12px; border-radius: 999px; cursor: pointer; min-height: 40px; letter-spacing: .02em; }
+.dc .menu button:hover { background: var(--tint); }
+@media (max-width: 860px) { .dc .menu { display: none; } }
+.dc .b { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 11px 22px; border-radius: 999px; font: 700 .96rem "Figtree", sans-serif; border: 1.5px solid transparent; cursor: pointer; }
+.dc .b1 { background: var(--acc); color: #F5F0E8; }
+.dc .b2 { background: transparent; color: var(--ink); border-color: var(--ink); }
+.dc .b[disabled] { opacity: .45; cursor: not-allowed; }
+.dc .hero .w { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 40px; align-items: center; padding-block: clamp(36px, 7vw, 84px); }
+@media (max-width: 860px) { .dc .hero .w { grid-template-columns: minmax(0, 1fr); } }
+.dc .hero h1 { font-size: clamp(2.6rem, 6.4vw, 5rem); line-height: .98; }
+.dc .hero p { font-size: 1.15rem; color: var(--soft); max-width: 32rem; margin-top: 16px; }
+.dc .hero .act { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.dc .art { aspect-ratio: 4 / 5; max-width: 100%; border-radius: 200px 200px 24px 24px; overflow: hidden; background: var(--acc); position: relative; }
+.dc .art svg { width: 100%; height: 100%; display: block; }
+.dc .sec { padding-block: clamp(48px, 7vw, 88px); }
+.dc .sec h2 { font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.05; }
+.dc .lead { color: var(--soft); max-width: 38rem; margin-top: 10px; }
+.dc .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; }
+.dc .tabs button { font: 600 .93rem "Figtree", sans-serif; padding: 8px 16px; min-height: 42px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+.dc .tabs button[aria-selected="true"] { background: var(--acc); color: #F5F0E8; border-color: var(--acc); }
+.dc .price-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; max-width: 760px; }
+.dc .price-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.dc .price-list small { color: var(--soft); font-variant-numeric: tabular-nums; }
+.dc .price-list b { font-variant-numeric: tabular-nums; }
+.dc .book { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 28px; align-items: start; margin-top: 28px; }
+@media (max-width: 900px) { .dc .book { grid-template-columns: minmax(0, 1fr); } }
+.dc .panel { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: clamp(18px, 3vw, 28px); display: grid; gap: 18px; }
+.dc .stepper { display: flex; gap: 6px; list-style: none; padding: 0; margin: 0; flex-wrap: wrap; }
+.dc .stepper li { font-size: .82rem; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: var(--bg); color: var(--soft); }
+.dc .stepper li.on { background: var(--acc); color: #F5F0E8; }
+.dc .stepper li.done { background: var(--tint); color: var(--ink); }
+.dc .opts { display: grid; gap: 8px; }
+.dc .opt { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; cursor: pointer; background: var(--bg); min-height: 52px; }
+.dc .opt:has(input:checked) { border-color: var(--acc); background: var(--tint); }
+.dc .opt input { accent-color: var(--acc); width: 18px; height: 18px; }
+.dc .opt small { color: var(--soft); }
+.dc .days { display: grid; grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); gap: 8px; }
+.dc .day, .dc .slot { border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 14px; padding: 10px 6px; font: 600 .9rem "Figtree", sans-serif; cursor: pointer; display: grid; gap: 2px; text-align: center; min-height: 48px; }
+.dc .day small { font-weight: 500; color: var(--soft); font-size: .78rem; }
+.dc .day[aria-pressed="true"], .dc .slot[aria-pressed="true"] { background: var(--acc); color: #F5F0E8; border-color: var(--acc); }
+.dc .day[aria-pressed="true"] small { color: #D9E3E1; }
+.dc .day:disabled, .dc .slot:disabled { opacity: .4; cursor: not-allowed; text-decoration: line-through; }
+.dc .slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px; }
+.dc .f { display: grid; gap: 6px; }
+.dc .f label { font-weight: 700; font-size: .92rem; }
+.dc .f input { font: inherit; font-size: 1rem; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 48px; width: 100%; }
+.dc .row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 520px) { .dc .row2 { grid-template-columns: minmax(0, 1fr); } }
+.dc .bnav { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.dc .sum dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 14px; margin: 0; }
+.dc .sum dt { color: var(--soft); font-size: .9rem; }
+.dc .sum dd { margin: 0; font-weight: 700; }
+.dc .ok { background: var(--tint); border-radius: 16px; padding: 18px; display: grid; gap: 6px; }
+.dc .err { color: #A3261B; font-weight: 700; font-size: .92rem; }
+.dc .demo-note { font-size: .85rem; color: var(--soft); }
+.dc .team { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+@media (max-width: 760px) { .dc .team { grid-template-columns: minmax(0, 1fr); } }
+.dc .member { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px; display: grid; gap: 8px; }
+.dc .member .av { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: "Italiana", serif; font-size: 1.6rem; color: #F5F0E8; }
+.dc .member p { color: var(--soft); font-size: .95rem; }
+.dc .info { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 760px) { .dc .info { grid-template-columns: minmax(0, 1fr); } }
+.dc .hours { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px; display: grid; gap: 14px; }
+.dc .hours table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.dc .hours td { padding: 7px 0; border-bottom: 1px solid var(--line); }
+.dc .hours td:last-child { text-align: right; }
+.dc .hours tr.today td { font-weight: 700; color: #9E5A44; }
+.dc .status { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; }
+.dc .status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #B4AEA4; }
+.dc .status.open::before { background: #2E9E5B; box-shadow: 0 0 0 4px rgba(46,158,91,.2); }
+.dc .ft { border-top: 1px solid var(--line); }
+.dc .ft .w { padding-block: 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; color: var(--soft); }
+.dc .callbar-m { display: none; }
+@media (max-width: 720px) {
+  .dc .callbar-m { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); background: var(--bg); border-top: 1px solid var(--line); }
+  .dc { padding-bottom: 76px; }
+}
+</style>
+
+<header class="hd">
+  <div class="w">
+    <div class="brand">Studio Lumen</div>
+    <nav class="menu" aria-label="Menu de l'exemple">
+      <button type="button" data-scroll="dc-tarifs">Prestations</button>
+      <button type="button" data-scroll="dc-rdv">Rendez-vous</button>
+      <button type="button" data-scroll="dc-team">L'équipe</button>
+      <button type="button" data-scroll="dc-info">Horaires et accès</button>
+    </nav>
+    <button class="b b1" type="button" data-scroll="dc-rdv">Réserver</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="w">
+    <div>
+      <h1>Coiffure et soins, à votre rythme</h1>
+      <p>Salon de coiffure mixte et institut au centre de Mons. Réservez en ligne en moins d'une minute, sans attendre au téléphone.</p>
+      <div class="act"><button class="b b1" type="button" data-scroll="dc-rdv">Prendre rendez-vous</button><button class="b b2" type="button" data-scroll="dc-tarifs">Voir les tarifs</button></div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+        <rect width="400" height="500" fill="#13434A"/>
+        <circle cx="200" cy="210" r="120" fill="#1F5A61"/>
+        <path d="M120 470 C120 360 160 320 200 320 C240 320 280 360 280 470Z" fill="#C9826B"/>
+        <circle cx="200" cy="250" r="58" fill="#E9C3A8"/>
+        <path d="M138 250 C130 170 180 150 214 160 C262 172 276 220 262 262 C258 228 240 205 205 200 C176 196 150 215 138 250Z" fill="#2B1C17"/>
+        <path d="M262 262 C270 320 250 360 238 372 C244 330 246 300 240 280Z" fill="#2B1C17"/>
+        <g fill="none" stroke="#F5F0E8" stroke-opacity=".35" stroke-width="2"><path d="M40 80 Q120 40 200 80"/><path d="M220 440 Q300 400 370 440"/></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="dc-tarifs" style="background:var(--card)">
+  <div class="w">
+    <h2>Prestations et tarifs</h2>
+    <p class="lead">Des prix clairs, affichés avant de réserver.</p>
+    <div class="tabs" role="tablist" aria-label="Catégories">
+      <button type="button" role="tab" data-cat="femme" aria-selected="true">Femme</button>
+      <button type="button" role="tab" data-cat="homme" aria-selected="false">Homme</button>
+      <button type="button" role="tab" data-cat="soins" aria-selected="false">Soins</button>
+    </div>
+    <ul class="price-list" id="dc-prices"></ul>
+  </div>
+</section>
+
+<section class="sec" id="dc-rdv">
+  <div class="w">
+    <h2>Prendre rendez-vous</h2>
+    <p class="lead">Choisissez votre prestation, le jour et l'heure. Vous recevez une confirmation par SMS.</p>
+    <div class="book">
+      <div class="panel" id="dc-book">
+        <ol class="stepper" id="dc-steps"><li>1. Prestation</li><li>2. Jour</li><li>3. Heure</li><li>4. Coordonnées</li></ol>
+        <div data-s="1"><div class="opts" id="dc-opts" role="radiogroup" aria-label="Prestation"></div></div>
+        <div data-s="2" hidden><div class="days" id="dc-days" role="group" aria-label="Jour"></div><p class="demo-note" style="margin-top:10px">Le salon est fermé le dimanche et le lundi.</p></div>
+        <div data-s="3" hidden><div class="slots" id="dc-slots" role="group" aria-label="Heure"></div></div>
+        <div data-s="4" hidden>
+          <div class="row2"><div class="f"><label for="dc-nom">Nom</label><input id="dc-nom" autocomplete="name"></div><div class="f"><label for="dc-tel">Téléphone mobile</label><input id="dc-tel" type="tel" autocomplete="tel"></div></div>
+        </div>
+        <div data-s="5" hidden><div class="ok" tabindex="-1" id="dc-ok"><h3 class="t" style="font-size:1.8rem">Rendez-vous réservé</h3><p id="dc-ok-t"></p><p class="demo-note">Site d'exemple : aucune réservation n'est enregistrée.</p></div></div>
+        <p class="err" id="dc-err" hidden></p>
+        <div class="bnav"><button class="b b2" type="button" id="dc-prev" hidden>← Retour</button><span></span><button class="b b1" type="button" id="dc-next">Continuer →</button></div>
+      </div>
+      <aside class="panel sum" aria-label="Votre rendez-vous">
+        <h3 class="t" style="font-size:1.6rem">Votre rendez-vous</h3>
+        <dl id="dc-sum"></dl>
+        <p class="demo-note">Annulation gratuite jusqu'à 24 heures avant.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="dc-team" style="background:var(--card)">
+  <div class="w">
+    <h2>L'équipe</h2>
+    <div class="team">
+      <div class="member"><span class="av" style="background:#13434A">L</span><h3 style="font-weight:700">Laura</h3><p>Coloriste, spécialiste du balayage et des blonds.</p></div>
+      <div class="member"><span class="av" style="background:#C9826B">K</span><h3 style="font-weight:700">Karim</h3><p>Coupes homme, barbe et dégradés.</p></div>
+      <div class="member"><span class="av" style="background:#6B8F71">E</span><h3 style="font-weight:700">Elena</h3><p>Esthéticienne : soins du visage, épilation, manucure.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="dc-info">
+  <div class="w info">
+    <div class="hours" data-hours='{"2":[[540,1110]],"3":[[540,1110]],"4":[[540,1200]],"5":[[540,1110]],"6":[[510,960]]}'>
+      <h3 class="t" style="font-size:1.8rem">Horaires</h3><p class="status" data-status>—</p><table data-table></table>
+    </div>
+    <div class="hours">
+      <h3 class="t" style="font-size:1.8rem">Accès</h3>
+      <p>Rue fictive 12, 7000 Mons</p>
+      <p style="color:var(--soft)">À 3 minutes à pied de la Grand-Place. Parking public à 100 m. Salon accessible en chaise roulante.</p>
+      <p style="color:var(--soft)">065 00 00 00 · bonjour@studio-lumen.example</p>
+    </div>
+  </div>
+</section>
+
+<footer class="ft"><div class="w"><span>Studio Lumen · coiffure et soins à Mons</span><span>Entreprise fictive créée par Vitroom pour l'exemple.</span></div></footer>
+<div class="callbar-m"><button class="b b2" type="button" data-fake-call>Appeler</button><button class="b b1" type="button" data-scroll="dc-rdv">Réserver</button></div>
+</div>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="/" aria-label="Vitroom, accueil"><img class="on-dark" src="/assets/img/logo-vitroom-blanc.svg" width="168" height="45" alt=""></a>
+        <p>Sites internet sur mesure pour les artisans, commerçants et indépendants, partout en Belgique.</p>
+      </div>
+      <div><h3>Le site</h3><ul><li><a href="/services">Services</a></li><li><a href="/exemples">Exemples</a></li><li><a href="/a-propos">À propos</a></li><li><a href="/questions">Questions</a></li><li><a href="/devis">Devis gratuit</a></li></ul></div>
+      <div><h3>Contact</h3><ul><li><a href="tel:+32470537008">0470 53 70 08</a></li><li><a href="https://wa.me/32470537008" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:sylvainrobinet030308@gmail.com" style="overflow-wrap:anywhere">sylvainrobinet030308@gmail.com</a></li></ul></div>
+      <div><h3>Outils gratuits</h3><ul><li><a href="/rentabilite">Calculateur de rentabilité</a></li><li><a href="/diagnostic">Diagnostic gratuit</a></li><li>Clients partout en Belgique</li></ul></div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 Vitroom · BCE <span>[à compléter]</span></span>
+      <span class="legal-links"><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a> · <a href="/cgu">Conditions d'utilisation</a> · <a href="#cookies" data-cookie-settings>Gérer les cookies</a></span>
+    </div>
+  </div>
+</footer>
+
+<nav class="mcall" aria-label="Contact rapide">
+  <a class="btn btn-ghost" href="tel:+32470537008">Appeler</a>
+  <a class="btn btn-ghost" href="https://wa.me/32470537008" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-primary" href="/devis">Devis gratuit</a>
+</nav>
+
+<div class="toast" id="demo-toast" role="status" hidden></div>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-live="polite" hidden>
+  <p class="cookie-title" id="cookie-title">Cookies et mesure d'audience</p>
+  <p>Ce site n'utilise aucun cookie publicitaire. Avec votre accord, une mesure d'audience anonyme et sans cookie nous aide à savoir quelles pages sont utiles. <a href="/confidentialite#cookies">En savoir plus</a></p>
+  <div class="cookie-details" id="cookie-details" hidden>
+    <label class="consent"><input type="checkbox" checked disabled> <span><b>Nécessaires</b> : mémoriser votre choix (toujours actif).</span></label>
+    <label class="consent"><input type="checkbox" id="cookie-stats"> <span><b>Mesure d'audience</b> : statistiques anonymes de visite.</span></label>
+    <button class="btn btn-ghost" type="button" id="cookie-save">Enregistrer mes choix</button>
+  </div>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost" type="button" id="cookie-refuse">Refuser</button>
+    <button class="btn btn-ghost" type="button" id="cookie-settings">Paramétrer</button>
+    <button class="btn btn-ghost" type="button" id="cookie-accept">Accepter</button>
+  </div>
+</div>
+</body>
+</html>

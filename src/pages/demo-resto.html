@@ -1,0 +1,188 @@
+<style>
+.dr { --ink: #2E1216; --soft: #6B4A4E; --bg: #FBF5EC; --card: #FFFFFF; --line: #EADCCB; --acc: #6E1A26; --gold: #B8862F; --olive: #5D6B2F; --tint: #F4E7D7;
+  background: var(--bg); color: var(--ink); font-family: "Figtree", system-ui, sans-serif; }
+.dr h1, .dr h2, .dr h3.t { font-family: "DM Serif Display", Georgia, serif; font-weight: 400; letter-spacing: 0; }
+.dr h3 { font-family: "Figtree", sans-serif; font-weight: 700; }
+.dr .w { max-width: 1120px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.dr .dr-hd { background: var(--acc); color: #F7E9D8; }
+.dr .dr-hd .w { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding-block: 14px; }
+.dr .brand { font-family: "DM Serif Display", Georgia, serif; font-size: 1.5rem; }
+.dr .dr-menu { display: flex; gap: 4px; }
+.dr .dr-menu button { background: none; border: 0; color: #F7E9D8; font: 600 .93rem "Figtree", sans-serif; padding: 8px 12px; border-radius: 999px; cursor: pointer; min-height: 40px; }
+.dr .dr-menu button:hover { background: rgba(255,255,255,.12); }
+@media (max-width: 860px) { .dr .dr-menu { display: none; } }
+.dr .b { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 11px 22px; border-radius: 999px; font: 700 .96rem "Figtree", sans-serif; border: 1.5px solid transparent; cursor: pointer; }
+.dr .b1 { background: var(--acc); color: #FBF5EC; }
+.dr .b2 { background: transparent; color: var(--ink); border-color: var(--ink); }
+.dr .b3 { background: var(--gold); color: #2E1216; }
+.dr .dr-hero { position: relative; overflow: hidden; background: #3B0E15; color: #FBF5EC; }
+.dr .dr-hero svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.dr .dr-hero .w { position: relative; padding-block: clamp(64px, 10vw, 128px); display: grid; gap: 18px; }
+.dr .dr-hero h1 { font-size: clamp(2.6rem, 6.6vw, 5.2rem); line-height: 1; max-width: 14ch; }
+.dr .dr-hero p { font-size: 1.15rem; max-width: 32rem; opacity: .92; }
+.dr .sec { padding-block: clamp(48px, 7vw, 88px); }
+.dr .sec h2 { font-size: clamp(2rem, 4.4vw, 3.1rem); line-height: 1.04; }
+.dr .lead { color: var(--soft); max-width: 38rem; margin-top: 10px; }
+.dr .bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; margin-top: 26px; }
+.dr .cats, .dr .diet { display: flex; flex-wrap: wrap; gap: 8px; }
+.dr .cats button, .dr .diet button { font: 600 .93rem "Figtree", sans-serif; padding: 8px 16px; min-height: 42px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+.dr .cats button[aria-selected="true"] { background: var(--acc); color: #FBF5EC; border-color: var(--acc); }
+.dr .diet button[aria-pressed="true"] { background: var(--olive); color: #fff; border-color: var(--olive); }
+.dr .dishes { list-style: none; padding: 0; margin: 20px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; }
+@media (max-width: 760px) { .dr .dishes { grid-template-columns: minmax(0, 1fr); } }
+.dr .dishes li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding: 16px 0; border-bottom: 1px dashed var(--line); }
+.dr .dishes b { font-size: 1.05rem; }
+.dr .dishes .p { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--acc); }
+.dr .dishes .d { grid-column: 1 / -1; color: var(--soft); font-size: .95rem; }
+.dr .dishes .tg { grid-column: 1 / -1; display: flex; gap: 6px; flex-wrap: wrap; }
+.dr .dishes .tg span { font-size: .75rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--tint); color: var(--olive); }
+.dr .empty-d { color: var(--soft); padding: 20px 0; }
+.dr .sugg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0; border-radius: 22px; overflow: hidden; background: var(--acc); color: #FBF5EC; }
+@media (max-width: 760px) { .dr .sugg { grid-template-columns: minmax(0, 1fr); } }
+.dr .sugg .tx { padding: clamp(22px, 4vw, 40px); display: grid; gap: 12px; align-content: center; }
+.dr .sugg .tx p { opacity: .9; }
+.dr .sugg svg { display: block; width: 100%; height: 100%; min-height: 220px; }
+.dr .resa { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 28px; align-items: start; margin-top: 28px; }
+@media (max-width: 900px) { .dr .resa { grid-template-columns: minmax(0, 1fr); } }
+.dr form, .dr .card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: clamp(18px, 3vw, 28px); display: grid; gap: 16px; }
+.dr .row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 520px) { .dr .row2 { grid-template-columns: minmax(0, 1fr); } }
+.dr .f { display: grid; gap: 6px; min-width: 0; }
+.dr .f > label, .dr .lg { font-weight: 700; font-size: .92rem; }
+.dr .f input, .dr .f select, .dr .f textarea { font: inherit; font-size: 1rem; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 48px; width: 100%; }
+.dr .f textarea { min-height: 80px; resize: vertical; }
+.dr .seg2 { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--bg); }
+.dr .seg2 button { border: 0; background: none; font: 700 .93rem "Figtree", sans-serif; padding: 8px 18px; min-height: 40px; border-radius: 999px; cursor: pointer; color: var(--ink); }
+.dr .seg2 button[aria-pressed="true"] { background: var(--acc); color: #FBF5EC; }
+.dr .times { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px; }
+.dr .times button { border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 12px; padding: 10px 6px; min-height: 46px; font: 700 .92rem "Figtree", sans-serif; cursor: pointer; font-variant-numeric: tabular-nums; }
+.dr .times button[aria-pressed="true"] { background: var(--acc); color: #FBF5EC; border-color: var(--acc); }
+.dr .times button:disabled { opacity: .4; text-decoration: line-through; cursor: not-allowed; }
+.dr .stepper2 { display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--bg); width: max-content; }
+.dr .stepper2 button { width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--card); font: 700 1.2rem "Figtree", sans-serif; color: var(--ink); cursor: pointer; }
+.dr .stepper2 output { min-width: 3.5em; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+.dr .ok { background: var(--tint); border-radius: 16px; padding: 18px; display: grid; gap: 6px; }
+.dr .err { color: #A3261B; font-weight: 700; font-size: .92rem; }
+.dr .demo-note { font-size: .85rem; color: var(--soft); }
+.dr .hours table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.dr .hours td { padding: 7px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.dr .hours td:last-child { text-align: right; }
+.dr .hours tr.today td { font-weight: 700; color: var(--acc); }
+.dr .status { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; }
+.dr .status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #B9A99A; }
+.dr .status.open::before { background: #2E9E5B; box-shadow: 0 0 0 4px rgba(46,158,91,.2); }
+.dr .info3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 900px) { .dr .info3 { grid-template-columns: minmax(0, 1fr); } }
+.dr .info3 p { color: var(--soft); }
+.dr .dr-ft { background: #2E1216; color: #E8D6C3; }
+.dr .dr-ft .w { padding-block: 34px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+.dr .callbar-m { display: none; }
+@media (max-width: 720px) {
+  .dr .callbar-m { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); background: var(--bg); border-top: 1px solid var(--line); }
+  .dr { padding-bottom: 76px; }
+}
+</style>
+
+<header class="dr-hd">
+  <div class="w">
+    <div class="brand">La Table du Marché</div>
+    <nav class="dr-menu" aria-label="Menu de l'exemple">
+      <button type="button" data-scroll="dr-carte">La carte</button>
+      <button type="button" data-scroll="dr-resa">Réserver</button>
+      <button type="button" data-scroll="dr-info">Horaires et accès</button>
+      <button type="button" data-scroll="dr-groupes">Groupes</button>
+    </nav>
+    <button class="b b3" type="button" data-scroll="dr-resa">Réserver une table</button>
+  </div>
+</header>
+
+<section class="dr-hero">
+  <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <rect width="1200" height="520" fill="#3B0E15"/>
+    <circle cx="900" cy="270" r="210" fill="#4E1520"/>
+    <circle cx="900" cy="270" r="150" fill="#F3E6D3"/>
+    <circle cx="900" cy="270" r="112" fill="#EAD5BA"/>
+    <circle cx="872" cy="250" r="34" fill="#B8462F"/>
+    <circle cx="935" cy="292" r="24" fill="#6E8B3D"/>
+    <circle cx="905" cy="230" r="12" fill="#E9C46A"/>
+    <path d="M1080 120 L1090 440" stroke="#C9B49A" stroke-width="10" stroke-linecap="round"/>
+    <path d="M720 110 L730 440" stroke="#C9B49A" stroke-width="10" stroke-linecap="round"/>
+    <rect width="1200" height="520" fill="url(#drshade)"/>
+    <defs><linearGradient id="drshade" x1="0" x2="1"><stop offset="0" stop-color="#1E070B" stop-opacity=".85"/><stop offset=".7" stop-color="#1E070B" stop-opacity="0"/></linearGradient></defs>
+  </svg>
+  <div class="w">
+    <h1>Cuisine de saison au cœur de Mons</h1>
+    <p>Des produits de nos maraîchers et producteurs du Hainaut, une carte qui change avec le marché.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px"><button class="b b3" type="button" data-scroll="dr-resa">Réserver une table</button><button class="b" type="button" data-scroll="dr-carte" style="background:transparent;color:#FBF5EC;border-color:#FBF5EC">Voir la carte</button></div>
+  </div>
+</section>
+
+<section class="sec" id="dr-carte">
+  <div class="w">
+    <h2>La carte</h2>
+    <p class="lead">Mise à jour chaque semaine. Filtrez selon vos envies ou vos besoins.</p>
+    <div class="bar">
+      <div class="cats" role="tablist" aria-label="Catégories">
+        <button type="button" role="tab" data-c="entrees" aria-selected="true">Entrées</button>
+        <button type="button" role="tab" data-c="plats" aria-selected="false">Plats</button>
+        <button type="button" role="tab" data-c="desserts" aria-selected="false">Desserts</button>
+      </div>
+      <div class="diet" role="group" aria-label="Filtres">
+        <button type="button" data-d="vege" aria-pressed="false">Végétarien</button>
+        <button type="button" data-d="sg" aria-pressed="false">Sans gluten</button>
+      </div>
+    </div>
+    <ul class="dishes" id="dr-dishes" aria-live="polite"></ul>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="w">
+    <div class="sugg">
+      <div class="tx"><p style="font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem;color:#E9C46A">Menu du midi · du mardi au vendredi</p><h2 style="font-size:clamp(1.8rem,3.6vw,2.6rem)">Entrée, plat, café gourmand</h2><p>Une formule différente chaque semaine, servie en moins d'une heure pour les pauses de midi.</p><p style="font-size:1.6rem;font-family:'DM Serif Display',serif">26 €</p></div>
+      <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="260" fill="#4E1520"/><circle cx="200" cy="130" r="92" fill="#F3E6D3"/><circle cx="200" cy="130" r="66" fill="#EAD5BA"/><path d="M160 140 Q200 90 240 140 Q200 170 160 140Z" fill="#8A4B2A"/><g fill="#6E8B3D"><circle cx="180" cy="110" r="8"/><circle cx="222" cy="112" r="7"/><circle cx="200" cy="160" r="6"/></g></svg>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="dr-resa" style="background:var(--tint)">
+  <div class="w">
+    <h2>Réserver une table</h2>
+    <p class="lead">Confirmation immédiate. Pour plus de 10 personnes, consultez la rubrique Groupes.</p>
+    <div class="resa">
+      <form id="dr-form" novalidate>
+        <div class="row2">
+          <div class="f"><label for="dr-date">Date</label><input id="dr-date" type="date"></div>
+          <div class="f"><span class="lg">Couverts</span><div class="stepper2"><button type="button" id="dr-minus" aria-label="Une personne de moins">−</button><output id="dr-n" aria-live="polite">2 pers.</output><button type="button" id="dr-plus" aria-label="Une personne de plus">+</button></div></div>
+        </div>
+        <div class="f"><span class="lg">Service</span><div class="seg2" role="group" aria-label="Service"><button type="button" data-sv="midi" aria-pressed="true">Midi</button><button type="button" data-sv="soir" aria-pressed="false">Soir</button></div></div>
+        <div class="f"><span class="lg">Heure</span><div class="times" id="dr-times"></div><p class="demo-note" id="dr-closed" hidden>Le restaurant est fermé ce jour-là. Choisissez une autre date.</p></div>
+        <div class="row2">
+          <div class="f"><label for="dr-nom">Nom</label><input id="dr-nom" autocomplete="name"></div>
+          <div class="f"><label for="dr-tel">Téléphone</label><input id="dr-tel" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="f"><label for="dr-note">Allergies ou occasion particulière <span style="font-weight:400;color:var(--soft)">(facultatif)</span></label><textarea id="dr-note" placeholder="Anniversaire, allergie aux fruits à coque…"></textarea></div>
+        <p class="err" id="dr-err" hidden></p>
+        <button class="b b1" type="submit">Confirmer la réservation</button>
+        <p class="demo-note">Site d'exemple : aucune réservation n'est enregistrée.</p>
+      </form>
+      <div style="display:grid;gap:16px">
+        <div class="ok" id="dr-ok" hidden tabindex="-1"><h3 class="t" style="font-size:1.6rem">Table réservée</h3><p id="dr-ok-t"></p><p class="demo-note">Sur un vrai site, le restaurant reçoit la réservation et le client un e-mail de confirmation.</p></div>
+        <div class="card"><h3 class="t" style="font-size:1.5rem">Bon à savoir</h3><p style="color:var(--soft)">Les tables sont gardées 15 minutes. Un imprévu ? Prévenez-nous, même au dernier moment.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="dr-info">
+  <div class="w info3">
+    <div class="card hours" data-hours='{"2":[[720,840],[1110,1320]],"3":[[720,840],[1110,1320]],"4":[[720,840],[1110,1320]],"5":[[720,840],[1110,1350]],"6":[[1110,1350]]}'>
+      <h3 class="t" style="font-size:1.5rem">Horaires</h3><p class="status" data-status>—</p><table data-table></table>
+    </div>
+    <div class="card"><h3 class="t" style="font-size:1.5rem">Accès</h3><p>Place fictive 4, 7000 Mons</p><p>À deux pas de la Grand-Place. Parking du Marché aux Herbes à 200 m.</p><p>065 00 00 00</p></div>
+    <div class="card" id="dr-groupes"><h3 class="t" style="font-size:1.5rem">Groupes et événements</h3><p>Salle privatisable jusqu'à 40 personnes pour anniversaires, communions et repas d'entreprise.</p><button class="b b2" type="button" data-fake-call>Nous appeler</button></div>
+  </div>
+</section>
+
+<footer class="dr-ft"><div class="w"><span>La Table du Marché · restaurant à Mons</span><span>Entreprise fictive créée par Vitroom pour l'exemple.</span></div></footer>
+<div class="callbar-m"><button class="b b2" type="button" data-fake-call>Appeler</button><button class="b b1" type="button" data-scroll="dr-resa">Réserver</button></div>

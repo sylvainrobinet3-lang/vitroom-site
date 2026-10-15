@@ -1,0 +1,54 @@
+  <section class="page-intro">
+    <div class="wrap">
+      <p class="eyebrow">Diagnostic gratuit</p>
+      <h1 tabindex="-1">Votre présence en ligne, notée en deux minutes</h1>
+      <p class="lead">Répondez à dix questions simples pour voir où vous en êtes. Ensuite, si vous le souhaitez, recevez un diagnostic personnalisé de votre site ou de votre page Facebook, gratuitement.</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap diag">
+      <ol class="quiz" id="quiz"></ol>
+      <aside class="score-box" aria-live="polite">
+        <div class="ring" id="ring" style="--p:0"><span><b id="score">0</b><small>/ 10</small></span></div>
+        <p class="score-level" id="score-level">Répondez aux questions</p>
+        <p class="muted" id="score-count">0 réponse sur 10</p>
+        <div class="tips" id="tips" hidden><h2 class="ui-title">Vos priorités</h2><ul id="tips-list"></ul></div>
+      </aside>
+    </div>
+  </section>
+  <section class="section band" id="diag-perso">
+    <div class="wrap ask">
+      <div>
+        <form class="form" id="g-form" name="diagnostic" method="post" action="/api/contact.php" novalidate><p class="hp" aria-hidden="true"><label>Laissez ce champ vide <input name="site_web" tabindex="-1" autocomplete="off"></label></p><input type="hidden" name="score"><input type="hidden" name="points">
+          <div class="step-head"><h2>Recevoir un diagnostic personnalisé</h2><p class="muted">Votre site ou votre page est analysé à la main : ce qui fonctionne, ce qui manque, et ce qui vous ferait gagner des clients. Gratuit et sans engagement.</p></div>
+          <div class="field"><label for="g-lien">Adresse de votre site ou de votre page Facebook</label><input id="g-lien" name="lien" inputmode="url" placeholder="www.votre-entreprise.be"><p class="hint">Pas encore de site ? Laissez vide, le diagnostic portera sur votre visibilité sur Google.</p></div>
+          <div class="form-row">
+            <div class="field"><label for="g-entreprise">Entreprise</label><input id="g-entreprise" name="entreprise" autocomplete="organization"></div>
+            <div class="field"><label for="g-commune">Commune</label><input id="g-commune" name="commune" autocomplete="address-level2"></div>
+          </div>
+          <div class="field"><label for="g-metier">Votre activité</label><input id="g-metier" name="metier" placeholder="Couvreur, coiffeuse, traiteur…"></div>
+          <div class="form-row">
+            <div class="field"><label for="g-nom">Nom</label><input id="g-nom" name="nom" autocomplete="name"></div>
+            <div class="field"><label for="g-tel">Téléphone ou e-mail</label><input id="g-tel" name="contact" autocomplete="tel"></div>
+          </div>
+          <label class="choice" style="padding-left:44px"><input type="checkbox" id="g-quiz" checked><b>Joindre mes réponses au questionnaire</b><small id="g-quiz-s">Aucune réponse pour l'instant</small></label>
+          <label class="consent"><input type="checkbox" name="rgpd" value="oui" required> <span>J'accepte que ces informations soient utilisées pour répondre à ma demande, comme expliqué dans la <a href="/confidentialite">politique de confidentialité</a>.</span></label>
+          <div data-turnstile></div>
+          <p class="form-error" id="g-error" role="alert" hidden></p>
+          <button class="btn btn-primary" type="submit" id="g-submit">Demander mon diagnostic</button>
+          <p class="note">Vos coordonnées servent uniquement à vous envoyer le diagnostic. Voir la <a href="/confidentialite">politique de confidentialité</a>.</p>
+        </form>
+        <div class="done" id="g-done" hidden tabindex="-1"><h2>Merci, votre demande de diagnostic est envoyée.</h2><p class="muted">Vous recevez votre diagnostic personnalisé rapidement, par le moyen de contact indiqué.</p><div class="actions"><a class="btn btn-ghost" href="/exemples">Voir des exemples</a><a class="btn btn-primary" href="/devis">Demander un devis</a></div></div>
+      </div>
+      <div style="display:grid;gap:16px;align-content:start">
+        <h2 class="ui-title">Ce que contient le diagnostic</h2>
+        <ul class="included" style="grid-template-columns:minmax(0,1fr)">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Votre position sur Google pour votre métier et votre commune</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>L'affichage sur téléphone et la vitesse de chargement</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>La clarté de vos coordonnées et de vos services</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Votre fiche Google et vos avis</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Trois actions concrètes, par ordre de priorité</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>

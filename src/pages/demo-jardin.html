@@ -1,0 +1,231 @@
+<style>
+.dj { --ink: #1E2B1F; --soft: #4F5E50; --bg: #F7F4EC; --card: #FFFFFF; --line: #DDD8C8; --acc: #2F5D3A; --acc2: #E9C46A; --tint: #E6EDE0;
+  background: var(--bg); color: var(--ink); font-family: "Figtree", system-ui, sans-serif; }
+.dj h1, .dj h2, .dj h3 { font-family: "Bricolage Grotesque", "Figtree", sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+.dj .w { max-width: 1120px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.dj .hd { background: var(--bg); border-bottom: 1px solid var(--line); }
+.dj .hd .w { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-block: 14px; }
+.dj .brand { display: flex; align-items: center; gap: 10px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.3rem; }
+.dj .brand i { width: 34px; height: 34px; border-radius: 10px 10px 10px 2px; background: var(--acc); display: grid; place-items: center; color: var(--acc2); font-style: normal; }
+.dj .menu { display: flex; gap: 6px; flex-wrap: wrap; }
+.dj .menu button { background: none; border: 0; font: 600 .95rem "Figtree", sans-serif; color: var(--ink); padding: 8px 12px; border-radius: 999px; cursor: pointer; min-height: 40px; }
+.dj .menu button:hover { background: var(--tint); }
+.dj .b { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 11px 20px; border-radius: 999px; font: 700 .98rem "Figtree", sans-serif; border: 2px solid transparent; cursor: pointer; text-decoration: none; }
+.dj .b1 { background: var(--acc); color: #fff; }
+.dj .b2 { background: transparent; color: var(--ink); border-color: var(--ink); }
+.dj .b3 { background: var(--acc2); color: var(--ink); }
+@media (max-width: 860px) { .dj .menu { display: none; } }
+.dj .hero { padding-block: 0; position: relative; overflow: hidden; color: #fff; }
+.dj .hero svg.bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.dj .hero .w { position: relative; padding-block: clamp(60px, 10vw, 120px); display: grid; gap: 20px; }
+.dj .hero h1 { font-size: clamp(2.2rem, 5.6vw, 4.2rem); line-height: 1.02; max-width: 15ch; }
+.dj .hero p { font-size: 1.2rem; max-width: 36rem; opacity: .95; }
+.dj .badges { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 6px 0 0; }
+.dj .badges li { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.35); padding: 6px 12px; border-radius: 999px; font-weight: 600; font-size: .92rem; backdrop-filter: blur(4px); }
+.dj .sec { padding-block: clamp(48px, 7vw, 88px); }
+.dj .sec h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); line-height: 1.08; }
+.dj .lead { color: var(--soft); max-width: 40rem; margin-top: 10px; }
+.dj .grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 32px; }
+@media (max-width: 960px) { .dj .grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .dj .grid4 { grid-template-columns: minmax(0, 1fr); } }
+.dj .svc { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; display: grid; gap: 10px; align-content: start; }
+.dj .svc .ic { width: 46px; height: 46px; border-radius: 14px; background: var(--tint); display: grid; place-items: center; color: var(--acc); }
+.dj .svc p { color: var(--soft); font-size: .97rem; }
+.dj .svc .price { font-weight: 700; color: var(--acc); font-size: .95rem; }
+.dj .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.dj .filters button { font: 600 .93rem "Figtree", sans-serif; padding: 8px 16px; min-height: 42px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+.dj .filters button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.dj .gal { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+@media (max-width: 860px) { .dj .gal { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .dj .gal { grid-template-columns: minmax(0, 1fr); } }
+.dj .gal figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.dj .gal svg { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; }
+.dj .gal figcaption { padding: 12px 14px; display: grid; gap: 2px; }
+.dj .gal figcaption b { font-size: .98rem; }
+.dj .gal figcaption span { color: var(--soft); font-size: .88rem; }
+.dj .ab { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; }
+@media (max-width: 860px) { .dj .ab { grid-template-columns: minmax(0, 1fr); } }
+.dj .abf { position: relative; aspect-ratio: 16 / 10; border-radius: 18px; overflow: hidden; --pos: 50%; max-width: 100%; }
+.dj .abf > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.dj .abf .after { clip-path: inset(0 0 0 var(--pos)); }
+.dj .abf .hdl { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: #fff; pointer-events: none; }
+.dj .abf .lb { position: absolute; top: 10px; font: 700 .78rem "Figtree", sans-serif; background: rgba(30,43,31,.8); color: #fff; padding: 4px 10px; border-radius: 999px; }
+.dj input[type="range"] { width: 100%; accent-color: var(--acc); min-height: 32px; }
+.dj .zone { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
+@media (max-width: 860px) { .dj .zone { grid-template-columns: minmax(0, 1fr); } }
+.dj .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.dj .tags span { padding: 6px 12px; border-radius: 999px; background: var(--tint); font-weight: 600; font-size: .92rem; }
+.dj .hours { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; display: grid; gap: 14px; }
+.dj .hours table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.dj .hours td { padding: 7px 0; border-bottom: 1px solid var(--line); }
+.dj .hours td:last-child { text-align: right; }
+.dj .hours tr.today td { font-weight: 700; color: var(--acc); }
+.dj .status { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; }
+.dj .status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #B0B0A0; }
+.dj .status.open::before { background: #2E9E5B; box-shadow: 0 0 0 4px rgba(46,158,91,.2); }
+.dj .quote { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 36px; align-items: start; }
+@media (max-width: 900px) { .dj .quote { grid-template-columns: minmax(0, 1fr); } }
+.dj form { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: clamp(18px, 3vw, 30px); display: grid; gap: 16px; }
+.dj .row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 560px) { .dj .row2 { grid-template-columns: minmax(0, 1fr); } }
+.dj .f { display: grid; gap: 6px; min-width: 0; }
+.dj .f > label, .dj .lg { font-weight: 700; font-size: .92rem; }
+.dj .f input:not([type="range"]):not([type="file"]), .dj .f select, .dj .f textarea { font: inherit; font-size: 1rem; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 48px; width: 100%; }
+.dj .f textarea { min-height: 96px; resize: vertical; }
+.dj .types { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.dj .types label { display: flex; gap: 10px; align-items: center; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); cursor: pointer; font-weight: 600; font-size: .95rem; min-height: 48px; }
+.dj .types label:has(input:checked) { border-color: var(--acc); background: var(--tint); }
+.dj .types input { accent-color: var(--acc); width: 18px; height: 18px; }
+.dj .surf { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--acc); }
+.dj .drop { border: 2px dashed var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 10px; background: var(--bg); }
+.dj .thumbs { display: flex; flex-wrap: wrap; gap: 8px; }
+.dj .thumbs img { width: 72px; height: 72px; object-fit: cover; border-radius: 10px; }
+.dj .ok { background: var(--tint); border-radius: 16px; padding: 20px; display: grid; gap: 8px; }
+.dj .err { color: #A3261B; font-weight: 700; font-size: .92rem; }
+.dj .demo-note { font-size: .85rem; color: var(--soft); }
+.dj .ft { background: var(--ink); color: #DCE3D6; }
+.dj .ft .w { padding-block: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
+.dj .ft b { color: #fff; }
+.dj .callbar-m { display: none; }
+@media (max-width: 720px) {
+  .dj .callbar-m { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); background: var(--bg); border-top: 1px solid var(--line); }
+  .dj { padding-bottom: 76px; }
+}
+</style>
+
+<header class="hd">
+  <div class="w">
+    <div class="brand"><i aria-hidden="true">✿</i>Atelier Vert</div>
+    <nav class="menu" aria-label="Menu de l'exemple">
+      <button type="button" data-scroll="dj-services">Services</button>
+      <button type="button" data-scroll="dj-real">Réalisations</button>
+      <button type="button" data-scroll="dj-zone">Zone et horaires</button>
+      <button type="button" data-scroll="dj-devis">Devis</button>
+    </nav>
+    <button class="b b1" type="button" data-scroll="dj-devis">Devis gratuit</button>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="bg" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <rect width="1200" height="520" fill="#8DB59A"/>
+    <circle cx="960" cy="120" r="70" fill="#F3E3A6"/>
+    <path d="M0 300 Q300 220 600 280 T1200 240 V520 H0Z" fill="#6E9E79"/>
+    <path d="M0 370 Q350 300 700 360 T1200 330 V520 H0Z" fill="#4E7F59"/>
+    <path d="M0 440 Q400 390 800 440 T1200 420 V520 H0Z" fill="#2F5D3A"/>
+    <g fill="#2B4F33"><circle cx="880" cy="300" r="46"/><rect x="874" y="300" width="12" height="70"/><circle cx="1010" cy="280" r="60"/><rect x="1002" y="280" width="16" height="90"/></g>
+    <rect width="1200" height="520" fill="url(#djshade)"/>
+    <defs><linearGradient id="djshade" x1="0" x2="1"><stop offset="0" stop-color="#12210F" stop-opacity=".7"/><stop offset=".75" stop-color="#12210F" stop-opacity="0"/></linearGradient></defs>
+  </svg>
+  <div class="w">
+    <h1>Votre jardin, créé et entretenu près de chez vous</h1>
+    <p>Aménagement, plantations, terrasses et entretien toute l'année, dans la région de Soignies.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px">
+      <button class="b b3" type="button" data-scroll="dj-devis">Demander un devis gratuit</button>
+      <button class="b" type="button" data-scroll="dj-real" style="background:transparent;color:#fff;border-color:#fff">Voir nos réalisations</button>
+    </div>
+    <ul class="badges"><li>Devis gratuit sous 48 h</li><li>Contrats d'entretien</li><li>Évacuation des déchets verts</li></ul>
+  </div>
+</section>
+
+<section class="sec" id="dj-services">
+  <div class="w">
+    <h2>Nos services</h2>
+    <p class="lead">Du premier coup de bêche à l'entretien régulier, une seule équipe s'occupe de votre jardin.</p>
+    <div class="grid4">
+      <div class="svc"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 21V9M12 9c0-4 3-6 7-6 0 4-3 6-7 6zM12 13c0-3-2.5-5-6-5 0 3 2.5 5 6 5z"/></svg></span><h3>Création de jardin</h3><p>Plans, plantations, pelouse, haies et massifs.</p><span class="price">Sur devis</span></div>
+      <div class="svc"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="10" width="18" height="10" rx="1"/><path d="M3 15h18M9 10v10M15 10v10"/></svg></span><h3>Terrasses et allées</h3><p>Bois, pierre naturelle, pavés et graviers stabilisés.</p><span class="price">Sur devis</span></div>
+      <div class="svc"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20h16M6 20l2-9h8l2 9M10 11V5h4v6"/></svg></span><h3>Entretien</h3><p>Tonte, taille, désherbage, ramassage des feuilles.</p><span class="price">Contrat à l'année</span></div>
+      <div class="svc"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M12 13v8M8 21h8"/></svg></span><h3>Élagage et abattage</h3><p>Arbres et haies hautes, en toute sécurité.</p><span class="price">Sur devis</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="dj-real" style="background:#EFEBDF">
+  <div class="w">
+    <h2>Nos réalisations</h2>
+    <p class="lead">Quelques chantiers récents. Filtrez par type de travaux.</p>
+    <div class="filters" role="group" aria-label="Filtrer les réalisations">
+      <button type="button" data-f="tous" aria-pressed="true">Tous</button>
+      <button type="button" data-f="creation" aria-pressed="false">Création</button>
+      <button type="button" data-f="terrasse" aria-pressed="false">Terrasses</button>
+      <button type="button" data-f="entretien" aria-pressed="false">Entretien</button>
+    </div>
+    <div class="gal" id="dj-gal">
+      <figure data-k="creation"><svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#A9C7B0"/><path d="M0 190 Q200 150 400 190 V300 H0Z" fill="#6E9E79"/><circle cx="90" cy="170" r="38" fill="#2F5D3A"/><circle cx="310" cy="160" r="48" fill="#3E6E49"/><path d="M150 300 Q200 220 250 300" fill="#E8DFC7"/><g fill="#E76F51"><circle cx="170" cy="230" r="6"/><circle cx="235" cy="240" r="6"/><circle cx="200" cy="215" r="6"/></g></svg><figcaption><b>Jardin familial</b><span>Soignies · création complète</span></figcaption></figure>
+      <figure data-k="terrasse"><svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#CFE0D1"/><path d="M0 170 H400 V300 H0Z" fill="#B88A5A"/><g stroke="#8E6438" stroke-width="3"><path d="M0 195H400M0 222H400M0 249H400M0 276H400"/></g><rect x="70" y="120" width="90" height="50" rx="6" fill="#F4F1EA"/><rect x="250" y="110" width="20" height="60" fill="#2F5D3A"/><circle cx="260" cy="100" r="30" fill="#4E7F59"/></svg><figcaption><b>Terrasse en bois</b><span>Casteau · 32 m²</span></figcaption></figure>
+      <figure data-k="entretien"><svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#DDEBD9"/><path d="M0 160 H400 V300 H0Z" fill="#7FB07F"/><g stroke="#6A9C6B" stroke-width="10"><path d="M0 180H400M0 210H400M0 240H400M0 270H400"/></g><rect x="40" y="90" width="320" height="60" rx="30" fill="#2F5D3A"/></svg><figcaption><b>Entretien annuel</b><span>Jurbise · pelouse et haies</span></figcaption></figure>
+      <figure data-k="creation"><svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#B9D3C0"/><ellipse cx="200" cy="210" rx="120" ry="40" fill="#5B8FA8"/><g fill="#2F5D3A"><circle cx="70" cy="170" r="30"/><circle cx="330" cy="175" r="34"/></g><g fill="#F1C453"><circle cx="150" cy="150" r="6"/><circle cx="260" cy="145" r="6"/></g></svg><figcaption><b>Bassin naturel</b><span>Le Rœulx · création</span></figcaption></figure>
+      <figure data-k="terrasse"><svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#D9E3DA"/><path d="M0 170 H400 V300 H0Z" fill="#C8C2B4"/><g fill="#B1AA9A"><rect x="20" y="185" width="80" height="40"/><rect x="110" y="185" width="80" height="40"/><rect x="200" y="185" width="80" height="40"/><rect x="290" y="185" width="80" height="40"/><rect x="60" y="235" width="80" height="40"/><rect x="150" y="235" width="80" height="40"/><rect x="240" y="235" width="80" height="40"/></g></svg><figcaption><b>Allée en pierre</b><span>Mons · 18 m</span></figcaption></figure>
+      <figure data-k="entretien"><svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#E4E9DB"/><path d="M0 200 H400 V300 H0Z" fill="#8DB59A"/><g fill="#2F5D3A"><rect x="30" y="100" width="340" height="100" rx="20"/></g><g fill="#C47F2C"><circle cx="90" cy="230" r="5"/><circle cx="160" cy="250" r="5"/><circle cx="280" cy="240" r="5"/></g></svg><figcaption><b>Taille de haies</b><span>Braine-le-Comte · 60 m</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="w ab">
+    <div>
+      <h2>Avant, après</h2>
+      <p class="lead">Un jardin en friche transformé en espace de vie en trois semaines. Faites glisser pour comparer.</p>
+    </div>
+    <div>
+      <div class="abf" id="dj-abf" role="img" aria-label="Comparaison avant et après d'un jardin">
+        <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#C9C1A3"/><path d="M0 120 H400 V250 H0Z" fill="#9A9168"/><g stroke="#6F6A44" stroke-width="3"><path d="M30 250 L45 190M70 250 L60 185M120 250 L135 200M200 250 L190 180M260 250 L275 195M330 250 L320 185M370 250 L385 200"/></g><rect x="290" y="150" width="60" height="40" fill="#8C8C8C"/></svg>
+        <svg class="after" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#BFD8C5"/><path d="M0 120 H400 V250 H0Z" fill="#6FA37A"/><path d="M0 200 H400 V250 H0Z" fill="#B88A5A"/><g fill="#2F5D3A"><circle cx="60" cy="120" r="30"/><circle cx="340" cy="115" r="36"/></g><g fill="#E76F51"><circle cx="150" cy="170" r="6"/><circle cx="180" cy="160" r="6"/><circle cx="230" cy="172" r="6"/></g><rect x="250" y="160" width="60" height="30" rx="4" fill="#F4F1EA"/></svg>
+        <span class="lb" style="left:10px">Avant</span><span class="lb" style="right:10px">Après</span><span class="hdl"></span>
+      </div>
+      <label for="dj-range" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Comparer avant et après</label>
+      <input id="dj-range" type="range" min="0" max="100" value="50">
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="dj-zone" style="background:#EFEBDF">
+  <div class="w zone">
+    <div>
+      <h2>Zone d'intervention</h2>
+      <p class="lead">Nous intervenons dans un rayon d'environ 25 km autour de Soignies.</p>
+      <div class="tags"><span>Soignies</span><span>Casteau</span><span>Mons</span><span>Jurbise</span><span>Le Rœulx</span><span>Braine-le-Comte</span><span>Écaussinnes</span><span>Enghien</span></div>
+    </div>
+    <div class="hours" data-hours='{"1":[[480,1080]],"2":[[480,1080]],"3":[[480,1080]],"4":[[480,1080]],"5":[[480,1080]],"6":[[540,720]]}'>
+      <h3 style="font-size:1.25rem">Horaires</h3>
+      <p class="status" data-status>—</p>
+      <table data-table></table>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="dj-devis">
+  <div class="w quote">
+    <div>
+      <h2>Demandez votre devis gratuit</h2>
+      <p class="lead">Décrivez votre projet et ajoutez quelques photos du terrain : vous recevez une estimation sous 48 heures.</p>
+      <p class="lead" style="margin-top:18px"><b style="color:var(--ink)">Atelier Vert</b><br>0470 00 00 00 · info@atelier-vert.example</p>
+    </div>
+    <form id="dj-form" novalidate>
+      <fieldset style="border:0;padding:0;margin:0;display:grid;gap:8px"><legend class="lg">Type de travaux</legend>
+        <div class="types">
+          <label><input type="checkbox" name="t" value="Création">Création</label><label><input type="checkbox" name="t" value="Terrasse">Terrasse ou allée</label>
+          <label><input type="checkbox" name="t" value="Entretien">Entretien</label><label><input type="checkbox" name="t" value="Élagage">Élagage</label>
+        </div></fieldset>
+      <div class="f"><label for="dj-surf">Surface approximative : <span class="surf" id="dj-surf-v">200 m²</span></label><input id="dj-surf" type="range" min="20" max="2000" step="10" value="200"></div>
+      <div class="row2">
+        <div class="f"><label for="dj-com">Commune</label><input id="dj-com" placeholder="Soignies"></div>
+        <div class="f"><label for="dj-when">Quand ?</label><select id="dj-when"><option>Dès que possible</option><option>Ce printemps</option><option>Cet été</option><option>Pas pressé</option></select></div>
+      </div>
+      <div class="f"><span class="lg">Photos du terrain <span style="font-weight:400;color:var(--soft)">(facultatif)</span></span>
+        <div class="drop"><label for="dj-photos" class="b b2" style="width:max-content">Ajouter des photos</label><input id="dj-photos" type="file" accept="image/*" multiple style="position:absolute;width:1px;height:1px;opacity:0"><div class="thumbs" id="dj-thumbs"></div></div></div>
+      <div class="row2">
+        <div class="f"><label for="dj-nom">Nom</label><input id="dj-nom" autocomplete="name"></div>
+        <div class="f"><label for="dj-tel">Téléphone</label><input id="dj-tel" type="tel" autocomplete="tel"></div>
+      </div>
+      <p class="err" id="dj-err" hidden></p>
+      <button class="b b1" type="submit">Envoyer ma demande</button>
+      <p class="demo-note">Site d'exemple : aucune demande n'est réellement envoyée.</p>
+    </form>
+    <div class="ok" id="dj-ok" hidden tabindex="-1"><h3>Merci, votre demande est prête.</h3><p id="dj-ok-t"></p><p class="demo-note">Sur un vrai site, elle arriverait directement dans la boîte mail de l'entreprise.</p></div>
+  </div>
+</section>
+
+<footer class="ft"><div class="w"><div><b>Atelier Vert</b><br>Jardins et espaces verts · région de Soignies</div><div>Entreprise fictive créée par Vitroom pour l'exemple.</div></div></footer>
+<div class="callbar-m"><button class="b b1" type="button" data-fake-call>Appeler</button><button class="b b3" type="button" data-scroll="dj-devis">Devis</button></div>

@@ -1,0 +1,51 @@
+  <section class="page-intro">
+    <div class="wrap">
+      <p class="eyebrow">Calculateur de rentabilité</p>
+      <h1 tabindex="-1">Combien de clients pour rembourser votre site ?</h1>
+      <p class="lead">Entrez vos propres chiffres : le calculateur montre en combien de clients et en combien de temps votre site est remboursé.</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap calc">
+      <div class="form calc-in">
+        <div class="field">
+          <span class="legend">Votre métier <span>(remplit des valeurs indicatives)</span></span>
+          <div class="presets" id="presets" role="group" aria-label="Préréglages par métier"></div>
+        </div>
+        <div class="field">
+          <label for="c-val">Ce que vous rapporte un nouveau client</label>
+          <div class="money"><input id="c-val" type="number" inputmode="numeric" min="0" step="10" value="2500"><span>€</span></div>
+          <p class="hint" id="c-val-hint">Montant moyen d'un chantier ou d'une commande.</p>
+        </div>
+        <div class="field">
+          <label for="c-marge">Votre marge sur ce montant : <b id="c-marge-v">30 %</b></label>
+          <input id="c-marge" class="range" type="range" min="5" max="80" step="5" value="30">
+          <p class="hint">Ce qu'il vous reste une fois le matériel, les salaires et les frais payés.</p>
+        </div>
+        <div class="field">
+          <label for="c-mois">Nouveaux clients par mois grâce au site : <b id="c-mois-v">1</b></label>
+          <input id="c-mois" class="range" type="range" min="0" max="10" step="1" value="1">
+        </div>
+        <div class="field">
+          <label for="c-budget">Budget du site</label>
+          <div class="money"><input id="c-budget" type="number" inputmode="numeric" min="0" step="50" value="1000"><span>€</span></div>
+          <p class="hint">Valeur d'exemple : indiquez le montant de votre devis.</p>
+        </div>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p class="eyebrow" style="color:var(--night-soft)">Résultat</p>
+        <p class="big"><span id="r-clients">2</span> <span id="r-clients-l">clients</span></p>
+        <p class="big-sub">suffisent pour rembourser le site.</p>
+        <dl class="kpis">
+          <div><dt>Bénéfice par nouveau client</dt><dd id="r-profit">750 €</dd></div>
+          <div><dt>Remboursé en</dt><dd id="r-mois">2 mois</dd></div>
+          <div><dt>Gain net sur 12 mois</dt><dd id="r-gain">8 000 €</dd></div>
+        </dl>
+        <div class="months" id="r-months" aria-hidden="true"></div>
+        <p class="months-legend"><span class="sw neg"></span>Le site se rembourse <span class="sw pos"></span>Le site vous rapporte</p>
+        <p class="calc-sentence" id="r-sentence"></p>
+        <a class="btn btn-light" href="/devis">Demander mon devis gratuit</a>
+      </div>
+    </div>
+    <div class="wrap"><p class="muted small-note">Simulation indicative, basée uniquement sur les chiffres que vous entrez. Le nombre de clients qu'un site apporte dépend de votre métier, de votre région et de votre visibilité sur Google.</p></div>
+  </section>
