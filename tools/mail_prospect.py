@@ -38,7 +38,7 @@ def build(f):
         p.get("benefice") or ("Concrètement, vos futurs clients vous trouveraient plus facilement, verraient vos réalisations "
                               "et vos avis, et pourraient vous demander un devis directement, sans intermédiaire."),
         f"J'ai préparé un aperçu de ce que pourrait être le site {de}{nom}, à partir des informations déjà publiques : {lien}",
-        f"Cela ne vous engage à rien. Je vous appelle {jour} pour avoir votre avis (15 minutes au téléphone ou en visio), "
+        f"Cela ne vous engage à rien. Je peux vous appeler {jour} pour avoir votre avis (15 minutes au téléphone ou en visio), "
         "ou répondez simplement à ce mail.",
         NON,
     ]
