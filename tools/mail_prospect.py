@@ -7,7 +7,8 @@ Sortie       :  une ligne JSON par fiche : {"slug","to","subject","body","htmlBo
 Champs utilisés dans la fiche (en plus de ceux d'apercu.py) :
   mail_prospect (destinataire), civilite_nom (ex. "Monsieur Dupont", vide = « Bonjour, »),
   observation (UNE phrase vraie et vérifiée), jour_appel (ex. "jeudi"), pays ("BE" ou "FR"),
-  date_mail (pour la relance, ex. "5 novembre"), nouveau (élément nouveau pour la relance, une phrase)
+  date_mail (pour la relance, ex. "5 novembre"), nouveau (élément nouveau pour la relance, une phrase),
+  benefice (facultatif : phrase sur ce que le site apporterait à CE métier, sinon phrase générale)
 """
 import html, json, sys
 
@@ -30,6 +31,12 @@ def build(f):
     paras = [
         bonjour,
         p["observation"],
+        "Pour me présenter en quelques mots : je suis Sylvain Robinet, fondateur de Vitroom, un studio de création de sites "
+        "internet basé dans la région de Mons. Je réalise des sites pour les artisans, indépendants et petites entreprises : "
+        "clairs, rapides, lisibles sur téléphone et pensés pour être trouvés sur Google.",
+        p.get("benefice") or ("Concrètement, un site vous permettrait d'être trouvé quand un client cherche votre métier "
+                              "près de chez lui, de montrer vos réalisations et vos avis, et de recevoir les demandes "
+                              "de devis directement, sans intermédiaire."),
         f"J'ai préparé un aperçu de ce que pourrait être le site {de}{nom}, à partir des informations déjà publiques : {lien}",
         f"Cela ne vous engage à rien. Je vous appelle {jour} pour avoir votre avis (15 minutes au téléphone ou en visio), "
         "ou répondez simplement à ce mail.",
@@ -38,7 +45,7 @@ def build(f):
     esc = lambda s: html.escape(s, quote=False)
     body = "\n\n".join(paras) + "\n\n" + SIGN_TXT.format(tel=tel)
     hp = [esc(x) for x in paras]
-    hp[2] = esc(paras[2].replace(lien, "")) + f'<a href="{lien}">{lien.replace("https://", "")}</a>'
+    hp[4] = esc(paras[4].replace(lien, "")) + f'<a href="{lien}">{lien.replace("https://", "")}</a>'
     htmlb = "".join(f"<p>{x}</p>" for x in hp) + SIGN_HTML.format(tel=tel)
     subject = f"Un aperçu du site {de}{nom}"
     rel = [bonjour,
