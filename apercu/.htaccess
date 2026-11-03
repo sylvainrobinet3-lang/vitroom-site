@@ -1,0 +1,4 @@
+# Aperçus pour prospects : jamais indexés
+<IfModule mod_headers.c>
+  Header always set X-Robots-Tag "noindex, nofollow"
+</IfModule>
