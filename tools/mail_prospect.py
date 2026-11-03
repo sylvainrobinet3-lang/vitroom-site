@@ -17,7 +17,7 @@ SIGN_HTML = ('<p>Bien à vous,<br>Sylvain Robinet<br>Vitroom · Création de sit
              '<a href="https://vitroom.be">www.vitroom.be</a><br>'
              '<a href="mailto:contact@vitroom.be">contact@vitroom.be</a><br>'
              '<a href="tel:+32470537008">{tel}</a></p>')
-NON = "Si ce n'est pas le bon moment, un simple « non merci » suffit : nous ne vous recontacterons pas."
+NON = "Si ce n'est pas le bon moment, un simple « non merci » suffit : je ne vous recontacterai pas."
 
 
 def build(f):
@@ -32,13 +32,13 @@ def build(f):
         bonjour,
         p["observation"],
         "Vitroom crée des sites internet pour les artisans, indépendants et petites entreprises : clairs, rapides, "
-        "lisibles sur téléphone et pensés pour être trouvés sur Google. Nous nous occupons de tout, de la création "
-        "à la mise en ligne, puis des mises à jour du site. Nous pouvons aussi créer ou améliorer votre fiche Google, "
+        "lisibles sur téléphone et pensés pour être trouvés sur Google. Je m'occupe de tout, de la création "
+        "à la mise en ligne, puis des mises à jour du site. Je peux aussi créer ou améliorer votre fiche Google, "
         "pour que vous apparaissiez sur Google Maps quand on cherche votre métier.",
         p.get("benefice") or ("Concrètement, vos futurs clients vous trouveraient plus facilement, verraient vos réalisations "
                               "et vos avis, et pourraient vous demander un devis directement, sans intermédiaire."),
-        f"Nous avons préparé un aperçu de ce que pourrait être le site {de}{nom}, à partir des informations déjà publiques : {lien}",
-        f"Cela ne vous engage à rien. Nous vous appelons {jour} pour avoir votre avis (15 minutes au téléphone ou en visio), "
+        f"J'ai préparé un aperçu de ce que pourrait être le site {de}{nom}, à partir des informations déjà publiques : {lien}",
+        f"Cela ne vous engage à rien. Je vous appelle {jour} pour avoir votre avis (15 minutes au téléphone ou en visio), "
         "ou répondez simplement à ce mail.",
         NON,
     ]
@@ -49,7 +49,7 @@ def build(f):
     htmlb = "".join(f"<p>{x}</p>" for x in hp) + SIGN_HTML.format(tel=tel)
     subject = f"Un aperçu du site {de}{nom}"
     rel = [bonjour,
-           f"Nous nous permettons de revenir vers vous au sujet de notre message du {p.get('date_mail', '[date]')}.",
+           f"Je me permets de revenir vers vous au sujet de mon message du {p.get('date_mail', '[date]')}.",
            (p.get("nouveau", "") + " " if p.get("nouveau") else "") + f"L'aperçu reste disponible ici : {lien}",
            NON]
     rel_body = "\n\n".join(rel) + "\n\n" + SIGN_TXT.format(tel=tel)
