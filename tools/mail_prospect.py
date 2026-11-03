@@ -22,6 +22,7 @@ NON = "Si ce n'est pas le bon moment, un simple « non merci » suffit : je ne v
 def build(f):
     p = json.load(open(f, encoding="utf-8"))
     nom, slug = p["nom"], p["slug"]
+    de = "d'" if nom[:1].lower() in "aeiouyhéèêàâîôû" else "de "
     tel = "0470 53 70 08" if p.get("pays", "BE") == "BE" else "+32 470 53 70 08"
     lien = f"https://vitroom.be/apercu/{slug}"
     bonjour = f"Bonjour {p['civilite_nom']}," if p.get("civilite_nom") else "Bonjour,"
@@ -29,7 +30,7 @@ def build(f):
     paras = [
         bonjour,
         p["observation"],
-        f"J'ai préparé un aperçu de ce que pourrait être le site de {nom}, à partir des informations déjà publiques : {lien}",
+        f"J'ai préparé un aperçu de ce que pourrait être le site {de}{nom}, à partir des informations déjà publiques : {lien}",
         f"Cela ne vous engage à rien. Je vous appelle {jour} pour avoir votre avis (15 minutes au téléphone ou en visio), "
         "ou répondez simplement à ce mail.",
         NON,
@@ -39,7 +40,7 @@ def build(f):
     hp = [esc(x) for x in paras]
     hp[2] = esc(paras[2].replace(lien, "")) + f'<a href="{lien}">{lien.replace("https://", "")}</a>'
     htmlb = "".join(f"<p>{x}</p>" for x in hp) + SIGN_HTML.format(tel=tel)
-    subject = f"Un aperçu du site de {nom}"
+    subject = f"Un aperçu du site {de}{nom}"
     rel = [bonjour,
            f"Je me permets de revenir vers vous au sujet de mon message du {p.get('date_mail', '[date]')}.",
            (p.get("nouveau", "") + " " if p.get("nouveau") else "") + f"L'aperçu reste disponible ici : {lien}",
