@@ -12,7 +12,7 @@ declare(strict_types=1);
 date_default_timezone_set('Europe/Brussels');
 
 $config = [
-    'to'               => 'sylvainrobinet030308@gmail.com',
+    'to'               => 'contact@vitroom.be',
     'from'             => 'site@vitroom.be',
     'from_name'        => 'Site Vitroom',
     'turnstile_secret' => '',

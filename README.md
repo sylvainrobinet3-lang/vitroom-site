@@ -19,7 +19,7 @@ Les fichiers `.html` à la racine sont générés : ne pas les modifier à la ma
 ## Formulaires
 
 Les demandes (devis, questions, diagnostic) partent directement du site vers `api/contact.php`, qui les envoie
-par e-mail à sylvainrobinet030308@gmail.com et en garde une copie protégée dans `api/data/` sur le serveur.
+par e-mail à contact@vitroom.be et en garde une copie protégée dans `api/data/` sur le serveur.
 Réglages facultatifs (adresse de réception, Turnstile) : copier `api/config.sample.php` en `api/config.php` sur le serveur.
 
 ## Test en local

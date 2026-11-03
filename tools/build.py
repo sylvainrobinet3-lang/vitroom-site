@@ -13,7 +13,7 @@ TODAY = datetime.date.today().isoformat()
 
 # Réglages publics (aucun secret ici : les clés secrètes vont dans api/config.php, hors du dépôt).
 CONFIG = {
-    "email": "sylvainrobinet030308@gmail.com",
+    "email": "contact@vitroom.be",
     "phone": "0470 53 70 08",
     "analyticsToken": "",     # jeton Cloudflare Web Analytics (public), vide = mesure d'audience désactivée
     "turnstileSiteKey": "",   # clé de SITE Cloudflare Turnstile (publique), vide = désactivé
@@ -81,7 +81,7 @@ JSONLD = {
     "@context": "https://schema.org", "@type": "ProfessionalService", "name": "Vitroom", "url": SITE + "/",
     "logo": SITE + "/icon-512.png", "image": SITE + "/assets/img/og-vitroom.png",
     "description": "Création de sites internet sur mesure pour artisans, commerçants et indépendants.",
-    "telephone": "+32470537008", "email": "sylvainrobinet030308@gmail.com",
+    "telephone": "+32470537008", "email": "contact@vitroom.be",
     "areaServed": {"@type": "Country", "name": "Belgique"}, "founder": {"@type": "Person", "name": "Sylvain Robinet"},
 }
 
