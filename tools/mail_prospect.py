@@ -8,7 +8,12 @@ Champs utilisés dans la fiche (en plus de ceux d'apercu.py) :
   mail_prospect (destinataire), civilite_nom (ex. "Monsieur Dupont", vide = « Bonjour, »),
   observation (UNE phrase vraie et vérifiée), jour_appel (ex. "jeudi"), pays ("BE" ou "FR"),
   date_mail (pour la relance, ex. "5 novembre"), nouveau (élément nouveau pour la relance, une phrase),
-  benefice (facultatif : phrase sur ce que le site apporterait à CE métier, sinon phrase générale)
+  benefice (facultatif : une phrase de plus sur ce que le site apporterait à CE métier),
+  pitch_qui / pitch_resultat (facultatifs : remplacent la phrase d'accroche déduite du métier)
+
+Accroche en 4 morceaux (méthode du 04-11-2026) : POUR QUI (le métier, au pluriel) + RÉSULTAT concret
+(devis, réservations, rendez-vous) + DÉLAI + RISQUE ZÉRO (il voit son site avant de s'engager).
+On ne dit jamais « je crée des sites » : on parle de ce que ça change pour lui.
 """
 import html, json, sys
 
@@ -17,6 +22,35 @@ SIGN_HTML = ('<p>Bien à vous,<br>Sylvain Robinet<br>Vitroom · Création de sit
              '<a href="https://vitroom.be">www.vitroom.be</a><br>'
              '<a href="mailto:contact@vitroom.be">contact@vitroom.be</a><br>'
              '<a href="tel:+32470537008">{tel}</a></p>')
+DELAI = "3 à 5 jours"
+
+# (mots-clés dans le métier, pour qui, résultat)
+PITCH = [
+    (("hôtel", "hotel", "gîte", "gite", "chambre d'hôte", "b&b"), "les hôtels et gîtes indépendants", "à prendre des réservations en direct, sans commission"),
+    (("restaurant", "brasserie", "café", "pizzeria", "friterie"), "les restaurants", "à remplir leurs tables avec des réservations en direct, sans commission"),
+    (("traiteur", "réception", "salle"), "les traiteurs et salles de réception", "à recevoir des demandes d'offre pour des mariages et des fêtes, en direct"),
+    (("coiff", "esthét", "beauté", "barbier", "onglerie", "massage", "kiné"), "les salons et indépendants du bien-être", "à remplir leur agenda avec des rendez-vous pris en ligne"),
+    (("garage", "carross", "mécani", "pneu"), "les garages", "à recevoir des demandes de rendez-vous et de devis en direct, de conducteurs du coin"),
+    (("toit", "couv", "zinguer", "charpent"), "les couvreurs", "à recevoir des demandes de devis de gens qui ont déjà vu leurs chantiers, avant même de les appeler"),
+    (("paysag", "jardin", "élagage", "elagage", "terrass"), "les paysagistes", "à recevoir des demandes de devis de propriétaires qui ont déjà vu leurs jardins, avant même de les appeler"),
+    (("châssis", "chassis", "menuis", "cuisin", "placard", "escalier"), "les menuisiers et cuisinistes", "à recevoir des demandes de devis de clients qui ont déjà vu leurs réalisations"),
+    (("carrel", "salle de bain", "sanitaire", "plomb"), "les artisans de la salle de bain et du carrelage", "à recevoir des demandes de devis de clients qui ont déjà vu leurs réalisations"),
+    (("chauff", "électri", "electri", "pompe à chaleur", "photovolt"), "les chauffagistes et électriciens", "à recevoir des demandes d'intervention et de devis de gens du coin qui cherchent quelqu'un de sérieux"),
+    (("rénov", "renov", "construct", "maçon", "macon", "façade", "isol", "entreprise générale"), "les entreprises de rénovation", "à recevoir des demandes de devis de gens qui ont déjà vu leurs chantiers, avant même de les appeler"),
+]
+PITCH_DEFAUT = ("les artisans et indépendants", "à recevoir des demandes de devis en direct, de gens qui les ont trouvés sur Google")
+
+
+def pitch(p):
+    if p.get("pitch_qui") and p.get("pitch_resultat"):
+        return p["pitch_qui"], p["pitch_resultat"]
+    m = (p.get("metier") or "").lower()
+    for keys, qui, res in PITCH:
+        if any(k in m for k in keys):
+            return qui, res
+    return PITCH_DEFAUT
+
+
 NON = "Si ce n'est pas le bon moment, un simple « non merci » suffit : je ne vous recontacterai pas."
 
 
@@ -28,24 +62,24 @@ def build(f):
     lien = f"https://vitroom.be/apercu/{slug}"
     bonjour = f"Bonjour {p['civilite_nom']}," if p.get("civilite_nom") else "Bonjour,"
     jour = p.get("jour_appel", "dans deux jours")
+    qui, res = pitch(p)
     paras = [
         bonjour,
         p["observation"],
-        "Vitroom crée des sites internet pour les artisans, indépendants et petites entreprises : clairs, rapides, "
-        "lisibles sur téléphone et pensés pour être trouvés sur Google. Je m'occupe de tout, de la création "
-        "à la mise en ligne, puis des mises à jour du site. Je peux aussi créer ou améliorer votre fiche Google, "
-        "pour que vous apparaissiez sur Google Maps quand on cherche votre métier.",
-        p.get("benefice") or ("Concrètement, vos futurs clients vous trouveraient plus facilement, verraient vos réalisations "
-                              "et vos avis, et pourraient vous demander un devis directement, sans intermédiaire."),
-        f"J'ai préparé un aperçu de ce que pourrait être le site {de}{nom}, à partir des informations déjà publiques : {lien}",
-        f"Cela ne vous engage à rien. Je peux vous appeler {jour} pour avoir votre avis (15 minutes au téléphone ou en visio), "
-        "ou répondez simplement à ce mail.",
+        f"J'aide {qui} {res}, avec un site en ligne en {DELAI}.",
+        f"Et vous ne prenez aucun risque : vous voyez votre site avant de vous engager. J'ai déjà préparé celui {de}{nom}, "
+        f"à partir des informations publiques : {lien}",
+    ]
+    if p.get("benefice"):
+        paras.append(p["benefice"])
+    paras += [
+        f"Je vous appelle {jour} pour avoir votre avis (15 minutes au téléphone ou en visio), ou répondez simplement à ce mail.",
         NON,
     ]
     esc = lambda s: html.escape(s, quote=False)
     body = "\n\n".join(paras) + "\n\n" + SIGN_TXT.format(tel=tel)
     hp = [esc(x) for x in paras]
-    hp[4] = esc(paras[4].replace(lien, "")) + f'<a href="{lien}">{lien.replace("https://", "")}</a>'
+    hp[3] = esc(paras[3].replace(lien, "")) + f'<a href="{lien}">{lien.replace("https://", "")}</a>'
     htmlb = "".join(f"<p>{x}</p>" for x in hp) + SIGN_HTML.format(tel=tel)
     subject = f"Un aperçu du site {de}{nom}"
     rel = [bonjour,

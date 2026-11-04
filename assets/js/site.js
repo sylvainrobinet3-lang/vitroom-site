@@ -590,15 +590,15 @@
   var nom = document.getElementById('v-nom'), metier = document.getElementById('v-metier'), commune = document.getElementById('v-commune');
   if (stage && nom && metier && commune) {
     var T = {
-      'Rénovation, toiture, châssis, façades': ['toit', 'Toiture et rénovation', 'Devis gratuit, travail soigné, interventions rapides.', ['Toitures', 'Châssis', 'Façades'], 'Demander un devis'],
-      'Paysagiste': ['jardin', 'Jardins créés et entretenus', 'Aménagement, plantations, terrasses et pelouses.', ['Aménagement', 'Entretien', 'Terrasses'], 'Demander un devis'],
-      'Menuiserie, cuisines, salles de bain, carrelage': ['bois', 'Cuisines et menuiserie sur mesure', 'Conception, fabrication et pose, du plan à la finition.', ['Cuisines', 'Salles de bain', 'Carrelage'], 'Demander un devis'],
-      'Chauffage, électricité, piscines': ['tech', 'Chauffage et électricité', 'Installation, entretien et dépannage chez vous.', ['Chauffage', 'Électricité', 'Dépannage'], 'Demander un devis'],
-      'Salle de réception, traiteur': ['fete', 'Traiteur et réceptions', 'Mariages, fêtes de famille et événements d\'entreprise.', ['Mariages', 'Banquets', 'Buffets'], 'Demander une offre'],
-      'Garage': ['garage', 'Votre garage', 'Entretien, réparation et pneus, toutes marques.', ['Entretien', 'Réparation', 'Pneus'], 'Prendre rendez-vous'],
-      'Restaurant, café': ['resto', 'Restaurant', 'Cuisine de saison, menu du midi et terrasse.', ['La carte', 'Menu du midi', 'Groupes'], 'Réserver une table'],
-      'Coiffure, esthétique, bien-être': ['beaute', 'Salon de coiffure', 'Coupes, couleurs et soins, sur rendez-vous.', ['Coupes', 'Couleurs', 'Soins'], 'Prendre rendez-vous'],
-      'Commerce': ['shop', 'Votre commerce', 'Horaires, produits et conseils, en un coup d\'œil.', ['Produits', 'Horaires', 'Accès'], 'Nous trouver']
+      'Rénovation, toiture, châssis, façades': ['toit', 'Toiture et rénovation', 'Devis gratuit, travail soigné, interventions rapides.', ['Toitures', 'Châssis', 'Façades'], 'Demander un devis', 'les couvreurs et entreprises de rénovation à recevoir des demandes de devis de gens qui ont déjà vu leurs chantiers, avant même de les appeler'],
+      'Paysagiste': ['jardin', 'Jardins créés et entretenus', 'Aménagement, plantations, terrasses et pelouses.', ['Aménagement', 'Entretien', 'Terrasses'], 'Demander un devis', 'les paysagistes à recevoir des demandes de devis de propriétaires qui ont déjà vu leurs jardins'],
+      'Menuiserie, cuisines, salles de bain, carrelage': ['bois', 'Cuisines et menuiserie sur mesure', 'Conception, fabrication et pose, du plan à la finition.', ['Cuisines', 'Salles de bain', 'Carrelage'], 'Demander un devis', 'les menuisiers et cuisinistes à recevoir des demandes de devis de clients qui ont déjà vu leurs réalisations'],
+      'Chauffage, électricité, piscines': ['tech', 'Chauffage et électricité', 'Installation, entretien et dépannage chez vous.', ['Chauffage', 'Électricité', 'Dépannage'], 'Demander un devis', 'les chauffagistes et électriciens à recevoir des demandes d\'intervention de gens du coin qui cherchent quelqu\'un de sérieux'],
+      'Salle de réception, traiteur': ['fete', 'Traiteur et réceptions', 'Mariages, fêtes de famille et événements d\'entreprise.', ['Mariages', 'Banquets', 'Buffets'], 'Demander une offre', 'les traiteurs et salles de réception à recevoir des demandes d\'offre pour des mariages et des fêtes, en direct'],
+      'Garage': ['garage', 'Votre garage', 'Entretien, réparation et pneus, toutes marques.', ['Entretien', 'Réparation', 'Pneus'], 'Prendre rendez-vous', 'les garages à recevoir des demandes de rendez-vous et de devis en direct, de conducteurs du coin'],
+      'Restaurant, café': ['resto', 'Restaurant', 'Cuisine de saison, menu du midi et terrasse.', ['La carte', 'Menu du midi', 'Groupes'], 'Réserver une table', 'les restaurants à remplir leurs tables avec des réservations en direct, sans commission'],
+      'Coiffure, esthétique, bien-être': ['beaute', 'Salon de coiffure', 'Coupes, couleurs et soins, sur rendez-vous.', ['Coupes', 'Couleurs', 'Soins'], 'Prendre rendez-vous', 'les salons à remplir leur agenda avec des rendez-vous pris en ligne'],
+      'Commerce': ['shop', 'Votre commerce', 'Horaires, produits et conseils, en un coup d\'œil.', ['Produits', 'Horaires', 'Accès'], 'Nous trouver', 'les commerçants à faire venir en boutique des clients qui les ont trouvés sur Google']
     };
     var slug = function (s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/&/g, ' et ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 32); };
     var set = function (key, val) { Array.prototype.forEach.call(stage.querySelectorAll('[data-v="' + key + '"]'), function (el) { el.textContent = val; }); };
@@ -607,6 +607,7 @@
       var t = T[metier.value] || T['Commerce'];
       var n = nom.value.trim() || 'Votre entreprise', c = commune.value.trim() || 'Mons';
       stage.setAttribute('data-t', t[0]);
+      var hp = document.getElementById('h-pitch'); if (hp) hp.textContent = 'Vitroom aide ' + t[5] + '.';
       set('nom', n); set('titre', t[1] + ' à ' + c); set('sous', t[2]); set('cta', t[4]);
       Array.prototype.forEach.call(stage.querySelectorAll('[data-v="svc"]'), function (box) {
         box.innerHTML = ''; t[3].forEach(function (s) { var sp = document.createElement('span'); sp.textContent = s; box.appendChild(sp); });

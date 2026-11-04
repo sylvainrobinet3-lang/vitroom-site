@@ -798,3 +798,8 @@ h3.ui, .ui-title { font-family: var(--body); font-weight: 700; letter-spacing: 0
 .step-head h2 { font-size: 1.6rem; margin-bottom: 14px; }
 body:has(.h-end) .footer { border-top: 1px solid var(--stage-line); }
 .h-try label:focus-within { outline: none; }
+.h-lead { margin-bottom: 10px; color: #fff; font-size: 1.22rem; }
+.h-lead2 { margin: 0 0 30px; color: var(--stage-soft); font-size: 1.05rem; max-width: 46ch; }
+#h-pitch { min-height: 3.2em; }
+@media (max-width: 640px) { #h-pitch { min-height: 0; } }
+.h-hero h1 { max-width: 16ch; font-size: clamp(2.4rem, 5vw, 3.9rem); }
