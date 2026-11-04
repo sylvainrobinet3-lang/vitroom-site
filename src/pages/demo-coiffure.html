@@ -21,7 +21,7 @@
 .dc .hero p { font-size: 1.15rem; color: var(--soft); max-width: 32rem; margin-top: 16px; }
 .dc .hero .act { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 .dc .art { aspect-ratio: 4 / 5; max-width: 100%; border-radius: 200px 200px 24px 24px; overflow: hidden; background: var(--acc); position: relative; }
-.dc .art svg { width: 100%; height: 100%; display: block; }
+.dc .art img { width: 100%; height: 100%; display: block; object-fit: cover; }
 .dc .sec { padding-block: clamp(48px, 7vw, 88px); }
 .dc .sec h2 { font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.05; }
 .dc .lead { color: var(--soft); max-width: 38rem; margin-top: 10px; }
@@ -108,15 +108,7 @@
       <div class="act"><button class="b b1" type="button" data-scroll="dc-rdv">Prendre rendez-vous</button><button class="b b2" type="button" data-scroll="dc-tarifs">Voir les tarifs</button></div>
     </div>
     <div class="art" aria-hidden="true">
-      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-        <rect width="400" height="500" fill="#13434A"/>
-        <circle cx="200" cy="210" r="120" fill="#1F5A61"/>
-        <path d="M120 470 C120 360 160 320 200 320 C240 320 280 360 280 470Z" fill="#C9826B"/>
-        <circle cx="200" cy="250" r="58" fill="#E9C3A8"/>
-        <path d="M138 250 C130 170 180 150 214 160 C262 172 276 220 262 262 C258 228 240 205 205 200 C176 196 150 215 138 250Z" fill="#2B1C17"/>
-        <path d="M262 262 C270 320 250 360 238 372 C244 330 246 300 240 280Z" fill="#2B1C17"/>
-        <g fill="none" stroke="#F5F0E8" stroke-opacity=".35" stroke-width="2"><path d="M40 80 Q120 40 200 80"/><path d="M220 440 Q300 400 370 440"/></g>
-      </svg>
+      <img src="/assets/img/demo/coiffure-hero.webp" alt="" width="800" height="1000" decoding="async">
     </div>
   </div>
 </section>

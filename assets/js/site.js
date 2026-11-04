@@ -603,9 +603,21 @@
     var slug = function (s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/&/g, ' et ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 32); };
     var set = function (key, val) { Array.prototype.forEach.call(stage.querySelectorAll('[data-v="' + key + '"]'), function (el) { el.textContent = val; }); };
     var link = document.getElementById('h-devis'), typingTimer;
+    var imgA = document.getElementById('v-img-a'), imgB = document.getElementById('v-img-b'), phoneHero = document.getElementById('v-phone-hero');
+    var swapImg = function (key) {
+      stage.dataset.img = key;
+      if (phoneHero) phoneHero.style.backgroundImage = 'url(/assets/img/v/' + key + '-s.webp)';
+      if (!imgA || !imgB) return;
+      var cur = imgA.classList.contains('on') ? imgA : imgB, next = cur === imgA ? imgB : imgA;
+      var url = '/assets/img/v/' + key + '.webp';
+      if (cur.getAttribute('src') === url) return;
+      next.onload = function () { if (stage.dataset.img !== key) return; next.classList.add('on'); cur.classList.remove('on'); };
+      next.src = url;
+    };
     var render = function () {
       var t = T[metier.value] || T['Commerce'];
       var n = nom.value.trim() || 'Votre entreprise', c = commune.value.trim() || 'Mons';
+      if (stage.getAttribute('data-t') !== t[0] || !stage.dataset.img) swapImg(t[0]);
       stage.setAttribute('data-t', t[0]);
       var hp = document.getElementById('h-pitch'); if (hp) hp.textContent = 'Vitroom aide ' + t[5] + '.';
       set('nom', n); set('titre', t[1] + ' à ' + c); set('sous', t[2]); set('cta', t[4]);
@@ -623,6 +635,60 @@
     var typing = function () { stage.classList.add('is-typing'); clearTimeout(typingTimer); typingTimer = setTimeout(function () { stage.classList.remove('is-typing'); }, 220); render(); };
     nom.addEventListener('input', typing); commune.addEventListener('input', typing); metier.addEventListener('change', render);
     render();
+
+    // Ouverture orchestrée (une seule fois)
+    var hero = document.querySelector('.h-hero');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      stage.classList.add('is-intro'); if (hero) hero.classList.add('is-intro');
+      setTimeout(function () { stage.classList.remove('is-intro'); if (hero) hero.classList.remove('is-intro'); }, 1800);
+    }
+
+    // Démonstration automatique : la vitrine change de métier tant que le visiteur n'a rien touché
+    var form = document.getElementById('h-try');
+    var DEMO = [['Rénovation, toiture, châssis, façades', 'Toitures Dubois', 'Mons'], ['Paysagiste', 'Jardins Lemaire', 'Soignies'],
+      ['Restaurant, café', 'Le Petit Marché', 'Namur'], ['Coiffure, esthétique, bien-être', 'Atelier Coiffure', 'Lille'],
+      ['Menuiserie, cuisines, salles de bain, carrelage', 'Cuisines Delhaye', 'Tournai'], ['Garage', 'Garage Martin', 'Charleroi']];
+    var demoIdx = 0, demoTimer = null, typeTimer = null, touched = false, visible = true;
+    var setPh = function (n, c) { nom.placeholder = n; commune.placeholder = c; };
+    var typeName = function (name, done) {
+      var i = 0; clearInterval(typeTimer);
+      typeTimer = setInterval(function () {
+        i++; var part = name.slice(0, i);
+        document.getElementById('v-domain').textContent = (slug(part) || 'votre-entreprise') + '.be';
+        Array.prototype.forEach.call(stage.querySelectorAll('[data-v="nom"]'), function (el) { el.textContent = part || 'Votre entreprise'; });
+        if (i >= name.length) { clearInterval(typeTimer); if (done) done(); }
+      }, 55);
+    };
+    var step = function () {
+      if (touched || !visible || document.hidden) return;
+      demoIdx = (demoIdx + 1) % DEMO.length;
+      var d = DEMO[demoIdx];
+      metier.value = d[0]; setPh(d[1], d[2]);
+      var t = T[d[0]];
+      if (stage.getAttribute('data-t') !== t[0]) swapImg(t[0]);
+      stage.setAttribute('data-t', t[0]);
+      set('titre', t[1] + ' à ' + d[2]); set('sous', t[2]); set('cta', t[4]);
+      Array.prototype.forEach.call(stage.querySelectorAll('[data-v="svc"]'), function (box) {
+        box.innerHTML = ''; t[3].forEach(function (x) { var sp = document.createElement('span'); sp.textContent = x; box.appendChild(sp); });
+      });
+      var hp = document.getElementById('h-pitch'); if (hp) hp.textContent = 'Vitroom aide ' + t[5] + '.';
+      typeName(d[1]);
+    };
+    var stopDemo = function () {
+      if (touched) return; touched = true; clearInterval(demoTimer); clearInterval(typeTimer);
+      stage.classList.remove('is-auto'); if (form) form.classList.add('is-touched');
+      setPh('Toitures Dubois', 'Mons'); render();
+    };
+    if (!reduce) {
+      stage.classList.add('is-auto');
+      setTimeout(function () { if (!touched) typeName(DEMO[0][1]); }, 1100);
+      demoTimer = setInterval(step, 3600);
+      [nom, metier, commune].forEach(function (el) { el.addEventListener('focus', stopDemo); el.addEventListener('pointerdown', stopDemo); });
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(stage);
+      // Précharge les photos des autres métiers une fois la page chargée
+      window.addEventListener('load', function () { setTimeout(function () { DEMO.forEach(function (d) { var im = new Image(); im.src = '/assets/img/v/' + T[d[0]][0] + '.webp'; }); }, 600); });
+    }
   }
 
   // Devis : reprend ce que le visiteur a saisi sur l'accueil
@@ -633,4 +699,46 @@
     var m = p.get('metier'), sel = df.querySelector('[name="metier"]');
     if (m && sel) Array.prototype.forEach.call(sel.options, function (o) { if ((o.value || o.text) === m) sel.value = o.value || o.text; });
   }
+})();
+
+/* ---------- Comparateur avant / après : un aller-retour explicatif quand il apparaît, puis la main au visiteur ---------- */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  [['ba-frame', 'ba-range'], ['dj-abf', 'dj-range']].forEach(function (ids) {
+    var f = document.getElementById(ids[0]), r = document.getElementById(ids[1]);
+    if (!f || !r) return;
+    var stop = false, raf;
+    var cancel = function () { stop = true; cancelAnimationFrame(raf); };
+    f.addEventListener('pointerdown', function () { cancel(); f.classList.add('is-dragging'); });
+    window.addEventListener('pointerup', function () { f.classList.remove('is-dragging'); });
+    r.addEventListener('input', cancel);
+    if (reduce || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return; io.disconnect();
+      var keys = [50, 78, 24, 50], seg = 0, t0 = null, D = 700;
+      var ease = function (x) { return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+      var tick = function (ts) {
+        if (stop) return; if (!t0) t0 = ts;
+        var k = Math.min(1, (ts - t0) / D), v = keys[seg] + (keys[seg + 1] - keys[seg]) * ease(k);
+        f.style.setProperty('--pos', v + '%'); r.value = Math.round(v);
+        if (k >= 1) { seg++; t0 = ts; if (seg >= keys.length - 1) return; }
+        raf = requestAnimationFrame(tick);
+      };
+      setTimeout(function () { if (!stop) raf = requestAnimationFrame(tick); }, 350);
+    }, { threshold: 0.6 });
+    io.observe(f);
+  });
+})();
+
+/* ---------- Exemples : longueur du défilement au survol, calculée sur la vraie capture ---------- */
+(function () {
+  var fit = function (img) {
+    var box = img.parentElement; if (!box || !img.naturalHeight) return;
+    var h = box.clientWidth * img.naturalHeight / img.naturalWidth, d = Math.max(0, h - box.clientHeight);
+    img.style.setProperty('--scroll', (-d) + 'px');
+  };
+  Array.prototype.forEach.call(document.querySelectorAll('.h-ex-shot img, .thumb.shot img'), function (img) {
+    if (img.complete) fit(img); else img.addEventListener('load', function () { fit(img); });
+  });
+  window.addEventListener('resize', function () { Array.prototype.forEach.call(document.querySelectorAll('.h-ex-shot img, .thumb.shot img'), fit); });
 })();

@@ -16,7 +16,8 @@
 .dj .b3 { background: var(--acc2); color: var(--ink); }
 @media (max-width: 860px) { .dj .menu { display: none; } }
 .dj .hero { padding-block: 0; position: relative; overflow: hidden; color: #fff; }
-.dj .hero svg.bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.dj .hero img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dj .hero .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,26,12,.78) 0%, rgba(14,26,12,.45) 50%, rgba(14,26,12,.05) 85%); }
 .dj .hero .w { position: relative; padding-block: clamp(60px, 10vw, 120px); display: grid; gap: 20px; }
 .dj .hero h1 { font-size: clamp(2.2rem, 5.6vw, 4.2rem); line-height: 1.02; max-width: 15ch; }
 .dj .hero p { font-size: 1.2rem; max-width: 36rem; opacity: .95; }
@@ -39,14 +40,14 @@
 @media (max-width: 860px) { .dj .gal { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .dj .gal { grid-template-columns: minmax(0, 1fr); } }
 .dj .gal figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-.dj .gal svg { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; }
+.dj .gal img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
 .dj .gal figcaption { padding: 12px 14px; display: grid; gap: 2px; }
 .dj .gal figcaption b { font-size: .98rem; }
 .dj .gal figcaption span { color: var(--soft); font-size: .88rem; }
 .dj .ab { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; }
 @media (max-width: 860px) { .dj .ab { grid-template-columns: minmax(0, 1fr); } }
 .dj .abf { position: relative; aspect-ratio: 16 / 10; border-radius: 18px; overflow: hidden; --pos: 50%; max-width: 100%; }
-.dj .abf > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.dj .abf > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .dj .abf .after { clip-path: inset(0 0 0 var(--pos)); }
 .dj .abf .hdl { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: #fff; pointer-events: none; }
 .dj .abf .lb { position: absolute; top: 10px; font: 700 .78rem "Figtree", sans-serif; background: rgba(30,43,31,.8); color: #fff; padding: 4px 10px; border-radius: 999px; }
@@ -107,16 +108,7 @@
 </header>
 
 <section class="hero">
-  <svg class="bg" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <rect width="1200" height="520" fill="#8DB59A"/>
-    <circle cx="960" cy="120" r="70" fill="#F3E3A6"/>
-    <path d="M0 300 Q300 220 600 280 T1200 240 V520 H0Z" fill="#6E9E79"/>
-    <path d="M0 370 Q350 300 700 360 T1200 330 V520 H0Z" fill="#4E7F59"/>
-    <path d="M0 440 Q400 390 800 440 T1200 420 V520 H0Z" fill="#2F5D3A"/>
-    <g fill="#2B4F33"><circle cx="880" cy="300" r="46"/><rect x="874" y="300" width="12" height="70"/><circle cx="1010" cy="280" r="60"/><rect x="1002" y="280" width="16" height="90"/></g>
-    <rect width="1200" height="520" fill="url(#djshade)"/>
-    <defs><linearGradient id="djshade" x1="0" x2="1"><stop offset="0" stop-color="#12210F" stop-opacity=".7"/><stop offset=".75" stop-color="#12210F" stop-opacity="0"/></linearGradient></defs>
-  </svg>
+  <img class="bg" src="/assets/img/demo/jardin-hero.webp" alt="" width="1600" height="700" decoding="async"><span class="shade" aria-hidden="true"></span>
   <div class="w">
     <h1>Votre jardin, créé et entretenu près de chez vous</h1>
     <p>Aménagement, plantations, terrasses et entretien toute l'année, dans la région de Soignies.</p>
@@ -152,12 +144,12 @@
       <button type="button" data-f="entretien" aria-pressed="false">Entretien</button>
     </div>
     <div class="gal" id="dj-gal">
-      <figure data-k="creation"><svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#A9C7B0"/><path d="M0 190 Q200 150 400 190 V300 H0Z" fill="#6E9E79"/><circle cx="90" cy="170" r="38" fill="#2F5D3A"/><circle cx="310" cy="160" r="48" fill="#3E6E49"/><path d="M150 300 Q200 220 250 300" fill="#E8DFC7"/><g fill="#E76F51"><circle cx="170" cy="230" r="6"/><circle cx="235" cy="240" r="6"/><circle cx="200" cy="215" r="6"/></g></svg><figcaption><b>Jardin familial</b><span>Soignies · création complète</span></figcaption></figure>
-      <figure data-k="terrasse"><svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#CFE0D1"/><path d="M0 170 H400 V300 H0Z" fill="#B88A5A"/><g stroke="#8E6438" stroke-width="3"><path d="M0 195H400M0 222H400M0 249H400M0 276H400"/></g><rect x="70" y="120" width="90" height="50" rx="6" fill="#F4F1EA"/><rect x="250" y="110" width="20" height="60" fill="#2F5D3A"/><circle cx="260" cy="100" r="30" fill="#4E7F59"/></svg><figcaption><b>Terrasse en bois</b><span>Casteau · 32 m²</span></figcaption></figure>
-      <figure data-k="entretien"><svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#DDEBD9"/><path d="M0 160 H400 V300 H0Z" fill="#7FB07F"/><g stroke="#6A9C6B" stroke-width="10"><path d="M0 180H400M0 210H400M0 240H400M0 270H400"/></g><rect x="40" y="90" width="320" height="60" rx="30" fill="#2F5D3A"/></svg><figcaption><b>Entretien annuel</b><span>Jurbise · pelouse et haies</span></figcaption></figure>
-      <figure data-k="creation"><svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#B9D3C0"/><ellipse cx="200" cy="210" rx="120" ry="40" fill="#5B8FA8"/><g fill="#2F5D3A"><circle cx="70" cy="170" r="30"/><circle cx="330" cy="175" r="34"/></g><g fill="#F1C453"><circle cx="150" cy="150" r="6"/><circle cx="260" cy="145" r="6"/></g></svg><figcaption><b>Bassin naturel</b><span>Le Rœulx · création</span></figcaption></figure>
-      <figure data-k="terrasse"><svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#D9E3DA"/><path d="M0 170 H400 V300 H0Z" fill="#C8C2B4"/><g fill="#B1AA9A"><rect x="20" y="185" width="80" height="40"/><rect x="110" y="185" width="80" height="40"/><rect x="200" y="185" width="80" height="40"/><rect x="290" y="185" width="80" height="40"/><rect x="60" y="235" width="80" height="40"/><rect x="150" y="235" width="80" height="40"/><rect x="240" y="235" width="80" height="40"/></g></svg><figcaption><b>Allée en pierre</b><span>Mons · 18 m</span></figcaption></figure>
-      <figure data-k="entretien"><svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="#E4E9DB"/><path d="M0 200 H400 V300 H0Z" fill="#8DB59A"/><g fill="#2F5D3A"><rect x="30" y="100" width="340" height="100" rx="20"/></g><g fill="#C47F2C"><circle cx="90" cy="230" r="5"/><circle cx="160" cy="250" r="5"/><circle cx="280" cy="240" r="5"/></g></svg><figcaption><b>Taille de haies</b><span>Braine-le-Comte · 60 m</span></figcaption></figure>
+      <figure data-k="creation"><img src="/assets/img/demo/jardin-1.webp" alt="Massifs fleuris et pelouse entretenue" width="800" height="600" loading="lazy" decoding="async"><figcaption><b>Jardin familial</b><span>Soignies · création complète</span></figcaption></figure>
+      <figure data-k="terrasse"><img src="/assets/img/demo/jardin-2.webp" alt="Terrasse en bois avec salon de jardin" width="800" height="600" loading="lazy" decoding="async"><figcaption><b>Terrasse en bois</b><span>Casteau · 32 m²</span></figcaption></figure>
+      <figure data-k="entretien"><img src="/assets/img/demo/jardin-6.webp" alt="Taille d'une haie au taille-haie" width="800" height="600" loading="lazy" decoding="async"><figcaption><b>Entretien annuel</b><span>Jurbise · pelouse et haies</span></figcaption></figure>
+      <figure data-k="creation"><img src="/assets/img/demo/jardin-4.webp" alt="Jardin avec étang et plantations" width="800" height="600" loading="lazy" decoding="async"><figcaption><b>Bassin naturel</b><span>Le Rœulx · création</span></figcaption></figure>
+      <figure data-k="terrasse"><img src="/assets/img/demo/jardin-5.webp" alt="Terrasse ronde en pavés de pierre" width="800" height="600" loading="lazy" decoding="async"><figcaption><b>Allée en pierre</b><span>Mons · 18 m</span></figcaption></figure>
+      <figure data-k="entretien"><img src="/assets/img/demo/jardin-3.webp" alt="Jardinier au travail avec une brouette" width="800" height="600" loading="lazy" decoding="async"><figcaption><b>Taille de haies</b><span>Braine-le-Comte · 60 m</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -170,8 +162,8 @@
     </div>
     <div>
       <div class="abf" id="dj-abf" role="img" aria-label="Comparaison avant et après d'un jardin">
-        <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#C9C1A3"/><path d="M0 120 H400 V250 H0Z" fill="#9A9168"/><g stroke="#6F6A44" stroke-width="3"><path d="M30 250 L45 190M70 250 L60 185M120 250 L135 200M200 250 L190 180M260 250 L275 195M330 250 L320 185M370 250 L385 200"/></g><rect x="290" y="150" width="60" height="40" fill="#8C8C8C"/></svg>
-        <svg class="after" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#BFD8C5"/><path d="M0 120 H400 V250 H0Z" fill="#6FA37A"/><path d="M0 200 H400 V250 H0Z" fill="#B88A5A"/><g fill="#2F5D3A"><circle cx="60" cy="120" r="30"/><circle cx="340" cy="115" r="36"/></g><g fill="#E76F51"><circle cx="150" cy="170" r="6"/><circle cx="180" cy="160" r="6"/><circle cx="230" cy="172" r="6"/></g><rect x="250" y="160" width="60" height="30" rx="4" fill="#F4F1EA"/></svg>
+        <img src="/assets/img/demo/jardin-avant.webp" alt="" width="1000" height="625" loading="lazy" decoding="async">
+        <img class="after" src="/assets/img/demo/jardin-apres.webp" alt="" width="1000" height="625" loading="lazy" decoding="async">
         <span class="lb" style="left:10px">Avant</span><span class="lb" style="right:10px">Après</span><span class="hdl"></span>
       </div>
       <label for="dj-range" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Comparer avant et après</label>

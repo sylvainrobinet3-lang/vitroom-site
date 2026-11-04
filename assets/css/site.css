@@ -803,3 +803,84 @@ body:has(.h-end) .footer { border-top: 1px solid var(--stage-line); }
 #h-pitch { min-height: 3.2em; }
 @media (max-width: 640px) { #h-pitch { min-height: 0; } }
 .h-hero h1 { max-width: 16ch; font-size: clamp(2.4rem, 5vw, 3.9rem); }
+
+/* =====================================================================
+   MOUVEMENT — 04-11-2026 (vitrine photo, ouverture orchestrée, exemples vivants)
+   Un seul moment chorégraphié (l'ouverture de la vitrine) ; le reste ne bouge
+   qu'en réponse au visiteur ou pour expliquer (comparateur, défilement des exemples).
+   ===================================================================== */
+:root { --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); }
+
+/* Photo du métier dans la vitrine, fondu croisé entre deux calques */
+.v-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 320ms ease; }
+.v-img.on { opacity: 1; }
+.v-phone-hero { background-size: cover; background-position: center; position: relative; }
+.v-phone-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,16,28,.05) 20%, rgba(10,16,28,.7)); }
+.v-phone-hero span { position: relative; }
+
+/* Ouverture : la vitrine se construit sous les yeux du visiteur (une fois, au chargement) */
+@media (prefers-reduced-motion: no-preference) {
+  .v-stage.is-intro .v-url,
+  .v-stage.is-intro .v-nav,
+  .v-stage.is-intro .v-copy > *,
+  .v-stage.is-intro .v-svc span,
+  .v-stage.is-intro .v-phone { animation: v-rise 520ms var(--ease-out) both; }
+  .v-stage.is-intro .v-hero { animation: v-wipe 900ms var(--ease-in-out) both; animation-delay: 140ms; }
+  .v-stage.is-intro .v-nav { animation-delay: 70ms; }
+  .v-stage.is-intro .v-copy > :nth-child(1) { animation-delay: 520ms; }
+  .v-stage.is-intro .v-copy > :nth-child(2) { animation-delay: 580ms; }
+  .v-stage.is-intro .v-copy > :nth-child(3) { animation-delay: 640ms; }
+  .v-stage.is-intro .v-svc span:nth-child(1) { animation-delay: 700ms; }
+  .v-stage.is-intro .v-svc span:nth-child(2) { animation-delay: 750ms; }
+  .v-stage.is-intro .v-svc span:nth-child(3) { animation-delay: 800ms; }
+  .v-stage.is-intro .v-phone { animation-duration: 700ms; animation-delay: 860ms; }
+  .h-hero.is-intro h1, .h-hero.is-intro .h-lead, .h-hero.is-intro .h-lead2, .h-hero.is-intro .h-actions, .h-hero.is-intro .h-facts { animation: v-rise 600ms var(--ease-out) both; }
+  .h-hero.is-intro .h-lead { animation-delay: 80ms; }
+  .h-hero.is-intro .h-lead2 { animation-delay: 140ms; }
+  .h-hero.is-intro .h-actions { animation-delay: 200ms; }
+  .h-hero.is-intro .h-facts { animation-delay: 260ms; }
+}
+@keyframes v-rise { from { opacity: 0; transform: translateY(14px); } }
+@keyframes v-wipe { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+
+/* Le nom tapé s'inscrit avec un curseur dans la barre d'adresse */
+.v-url #v-domain::after { content: ""; display: inline-block; width: 1.5px; height: 0.95em; margin-left: 2px; background: currentColor; vertical-align: -2px; opacity: 0; }
+.v-stage.is-typing #v-domain::after, .v-stage.is-auto #v-domain::after { opacity: .8; }
+@media (prefers-reduced-motion: no-preference) { .v-stage.is-auto #v-domain::after { animation: v-caret 1s steps(2) infinite; } }
+@keyframes v-caret { 50% { opacity: 0; } }
+
+/* Petit indicateur « démonstration automatique » qui disparaît dès que le visiteur tape */
+.h-try-auto { display: inline-flex; align-items: center; gap: 8px; margin-left: 10px; font-weight: 500; font-size: .8rem; color: var(--stage-soft); transition: opacity 200ms ease; }
+.h-try-auto::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #7FA0FF; }
+.h-try.is-touched .h-try-auto { opacity: 0; }
+
+/* ---------- Exemples : vraies captures dans un cadre de navigateur, qui défilent au survol ---------- */
+.h-ex-img { aspect-ratio: auto; background: #E9EDF5; border-radius: var(--r-m); overflow: hidden; display: grid; grid-template-rows: auto 1fr; box-shadow: 0 1px 0 rgba(11,31,60,.06), 0 18px 40px -24px rgba(11,31,60,.45); }
+.h-ex-bar { display: flex; gap: 6px; align-items: center; padding: 8px 12px; background: #E9EDF5; }
+.h-ex-bar i { width: 8px; height: 8px; border-radius: 50%; background: #C3CBDA; }
+.h-ex-bar span { margin-left: 8px; font-size: .74rem; color: #4A5878; background: #fff; border-radius: 999px; padding: 2px 10px; }
+.h-ex-shot { position: relative; height: clamp(220px, 26vw, 330px); overflow: hidden; background: #fff; }
+.h-ex-shot img { position: absolute; left: 0; top: 0; width: 100%; height: auto; display: block; transform: translateY(0); transition: transform 700ms var(--ease-out); will-change: transform; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .h-ex:hover .h-ex-shot img, .h-ex:focus-visible .h-ex-shot img { transform: translateY(var(--scroll, -60%)); transition: transform 5s var(--ease-in-out); }
+}
+.h-ex-hint { margin: 0; font-size: .85rem; color: var(--ink-soft); }
+@media (hover: none) { .h-ex-hint { display: none; } }
+
+/* Même cadre sur la page Exemples */
+.demo-card .thumb.shot { aspect-ratio: auto; height: 240px; position: relative; overflow: hidden; background: #fff; }
+.demo-card .thumb.shot img { position: absolute; left: 0; top: 0; width: 100%; height: auto; display: block; transition: transform 700ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .demo-card:hover .thumb.shot img { transform: translateY(var(--scroll, -60%)); transition: transform 5s var(--ease-in-out); }
+}
+
+/* Comparateur : la poignée réagit à la prise en main */
+.ba-handle::after { transition: transform 160ms var(--ease-out); }
+.ba-frame.is-dragging .ba-handle::after { transform: translate(-50%, -50%) scale(1.12); }
+
+/* Téléphone : supprimer les signes « site web » (flash au toucher, délai, sélection du texte des boutons) */
+html { -webkit-tap-highlight-color: transparent; -webkit-text-size-adjust: 100%; }
+button, .btn, .nav a, .h-ex, .demo-card, [role="button"] { touch-action: manipulation; }
+button, .btn, .h-call, .mcall a { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, textarea, select { font-size: max(16px, 1em); }
+.h-ex:active, .demo-card:active { transform: scale(0.99); transition: transform 120ms var(--ease-out); }

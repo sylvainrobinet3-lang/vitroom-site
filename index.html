@@ -7,10 +7,12 @@
 <meta name="description" content="Sites internet sur mesure pour artisans, commerçants et indépendants, à Mons, Soignies et partout en Belgique. Rapides, pensés pour le mobile. Devis gratuit.">
 <link rel="canonical" href="https://vitroom.be/">
 <script>(function(){var m={"accueil":"/","services":"/services","exemples":"/exemples","a-propos":"/a-propos","questions":"/questions","devis":"/devis","mentions":"/mentions-legales","rentabilite":"/rentabilite","diagnostic":"/diagnostic","demo-jardin":"/exemple-paysagiste","demo-coiffure":"/exemple-coiffure","demo-resto":"/exemple-restaurant"},h=location.hash.slice(1);if(m[h]&&m[h]!=='/')location.replace(m[h]);})();</script>
-<meta name="theme-color" content="#0B1F3C">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6F8FC">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#081428">
+<meta name="color-scheme" content="light dark">
 <link rel="preload" href="/assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-800.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=a624b015">
+<link rel="stylesheet" href="/assets/css/site.css?v=2ddfa2fe">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -31,7 +33,7 @@
 <meta name="twitter:image" content="https://vitroom.be/assets/img/og-vitroom.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Vitroom","url":"https://vitroom.be/","logo":"https://vitroom.be/icon-512.png","image":"https://vitroom.be/assets/img/og-vitroom.png","description":"Création de sites internet sur mesure pour artisans, commerçants et indépendants.","telephone":"+32470537008","email":"contact@vitroom.be","areaServed":[{"@type":"Country","name":"Belgique"},{"@type":"Country","name":"France"}],"founder":{"@type":"Person","name":"Sylvain Robinet"}}</script>
 <script>window.VITROOM_CONFIG = {"email": "contact@vitroom.be", "phone": "0470 53 70 08", "analyticsToken": "", "turnstileSiteKey": ""};</script>
-<script src="/assets/js/site.js?v=9d9cd051" defer></script>
+<script src="/assets/js/site.js?v=1262b987" defer></script>
 </head>
 <body>
 <header class="site-header">
@@ -76,7 +78,7 @@
 
       <div class="h-vitrine">
         <form class="h-try" id="h-try" aria-label="Essayer avec votre entreprise" onsubmit="return false">
-          <p class="h-try-title">Essayez avec votre entreprise</p>
+          <p class="h-try-title">Essayez avec votre entreprise<span class="h-try-auto">démonstration en cours</span></p>
           <div class="h-try-fields">
             <label><span>Nom</span><input id="v-nom" maxlength="40" placeholder="Toitures Dubois" autocomplete="organization"></label>
             <label><span>Métier</span><select id="v-metier">
@@ -100,7 +102,7 @@
             <div class="v-page">
               <div class="v-nav"><b data-v="nom">Votre entreprise</b><span class="v-links"><i>Services</i><i>Réalisations</i><i>Contact</i></span><span class="v-btn" data-v="cta">Demander un devis</span></div>
               <div class="v-hero">
-                <svg class="v-scene" viewBox="0 0 600 260" preserveAspectRatio="xMidYMid slice"><rect width="600" height="260" class="s0"/><path class="s1" d="M0 150 Q150 105 300 140 T600 120 V260 H0Z"/><path class="s2" d="M0 190 Q170 160 330 188 T600 175 V260 H0Z"/><path class="s3" d="M0 228 Q200 205 380 226 T600 218 V260 H0Z"/></svg>
+                <img class="v-img on" id="v-img-a" src="/assets/img/v/toit.webp" alt="" width="1200" height="675" fetchpriority="high"><img class="v-img" id="v-img-b" alt="" width="1200" height="675">
                 <div class="v-copy"><b data-v="titre">Toiture et rénovation à Mons</b><span data-v="sous">Devis gratuit, travail soigné, interventions rapides.</span><span class="v-btn" data-v="cta">Demander un devis</span></div>
               </div>
               <div class="v-svc" data-v="svc"><span>Toitures</span><span>Châssis</span><span>Façades</span></div>
@@ -109,7 +111,7 @@
           <div class="v-phone">
             <div class="v-phone-in">
               <b data-v="nom">Votre entreprise</b>
-              <div class="v-phone-hero"><span data-v="titre">Toiture et rénovation à Mons</span></div>
+              <div class="v-phone-hero" id="v-phone-hero"><span data-v="titre">Toiture et rénovation à Mons</span></div>
               <div class="v-phone-svc" data-v="svc"><span>Toitures</span><span>Châssis</span><span>Façades</span></div>
               <span class="v-phone-call">Appeler</span>
             </div>
@@ -200,16 +202,16 @@
       </div>
       <div class="h-ex-list">
       <a class="h-ex" href="/exemple-paysagiste">
-        <div class="h-ex-img"><svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#8DB59A"/><circle cx="320" cy="60" r="28" fill="#F3E3A6"/><path d="M0 140 Q100 110 200 135 T400 120 V250 H0Z" fill="#6E9E79"/><path d="M0 180 Q120 150 240 175 T400 165 V250 H0Z" fill="#4E7F59"/><path d="M0 215 Q150 195 280 215 T400 205 V250 H0Z" fill="#2F5D3A"/><rect width="400" height="34" fill="#F7F4EC"/><rect x="14" y="10" width="70" height="14" rx="3" fill="#2F5D3A"/><rect x="310" y="8" width="76" height="18" rx="9" fill="#2F5D3A"/><rect x="24" y="70" width="170" height="20" rx="4" fill="#fff" opacity=".9"/><rect x="24" y="98" width="120" height="14" rx="4" fill="#fff" opacity=".7"/><rect x="24" y="124" width="84" height="22" rx="11" fill="#E9C46A"/></svg></div>
-        <div class="h-ex-txt"><p class="h-ex-kind">Paysagiste · entreprise fictive</p><h3>Atelier Vert</h3><p>Réalisations filtrables par type de travaux, avant / après, et une demande de devis où le client joint des photos de son terrain.</p><span class="h-link">Visiter le site</span></div>
+        <div class="h-ex-img"><div class="h-ex-bar" aria-hidden="true"><i></i><i></i><i></i><span>atelier-vert.be</span></div><div class="h-ex-shot"><img src="/assets/img/ex/paysagiste.webp" alt="Capture de la page d'accueil du site d'exemple" width="960" height="2700" loading="lazy" decoding="async"></div></div>
+        <div class="h-ex-txt"><p class="h-ex-kind">Paysagiste · entreprise fictive</p><h3>Atelier Vert</h3><p>Réalisations filtrables par type de travaux, avant / après, et une demande de devis où le client joint des photos de son terrain.</p><span class="h-link">Visiter le site</span><p class="h-ex-hint">Survolez la capture pour la faire défiler.</p></div>
       </a>
       <a class="h-ex" href="/exemple-coiffure">
-        <div class="h-ex-img"><svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#F5F0E8"/><rect width="400" height="34" fill="#F5F0E8"/><rect x="14" y="12" width="96" height="12" rx="3" fill="#13434A"/><rect x="314" y="8" width="72" height="18" rx="9" fill="#13434A"/><rect x="24" y="70" width="150" height="26" rx="4" fill="#13434A"/><rect x="24" y="104" width="120" height="12" rx="4" fill="#4E6669" opacity=".6"/><rect x="24" y="132" width="96" height="22" rx="11" fill="#13434A"/><path d="M250 250 V110 A70 70 0 0 1 390 110 V250Z" fill="#13434A"/><circle cx="320" cy="150" r="30" fill="#E9C3A8"/><path d="M285 250 C285 205 300 190 320 190 C340 190 355 205 355 250Z" fill="#C9826B"/></svg></div>
-        <div class="h-ex-txt"><p class="h-ex-kind">Salon de coiffure · entreprise fictive</p><h3>Studio Lumen</h3><p>Tarifs clairs par catégorie, l'équipe présentée, et la prise de rendez-vous en ligne en quatre étapes.</p><span class="h-link">Visiter le site</span></div>
+        <div class="h-ex-img"><div class="h-ex-bar" aria-hidden="true"><i></i><i></i><i></i><span>studio-lumen.be</span></div><div class="h-ex-shot"><img src="/assets/img/ex/coiffure.webp" alt="Capture de la page d'accueil du site d'exemple" width="960" height="2700" loading="lazy" decoding="async"></div></div>
+        <div class="h-ex-txt"><p class="h-ex-kind">Salon de coiffure · entreprise fictive</p><h3>Studio Lumen</h3><p>Tarifs clairs par catégorie, l'équipe présentée, et la prise de rendez-vous en ligne en quatre étapes.</p><span class="h-link">Visiter le site</span><p class="h-ex-hint">Survolez la capture pour la faire défiler.</p></div>
       </a>
       <a class="h-ex" href="/exemple-restaurant">
-        <div class="h-ex-img"><svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#3B0E15"/><rect width="400" height="34" fill="#6E1A26"/><rect x="14" y="11" width="110" height="12" rx="3" fill="#F7E9D8"/><rect x="304" y="8" width="82" height="18" rx="9" fill="#B8862F"/><circle cx="300" cy="140" r="78" fill="#F3E6D3"/><circle cx="300" cy="140" r="56" fill="#EAD5BA"/><circle cx="288" cy="130" r="16" fill="#B8462F"/><circle cx="316" cy="152" r="11" fill="#6E8B3D"/><rect x="24" y="76" width="150" height="24" rx="4" fill="#FBF5EC"/><rect x="24" y="108" width="110" height="12" rx="4" fill="#FBF5EC" opacity=".6"/><rect x="24" y="134" width="100" height="22" rx="11" fill="#B8862F"/></svg></div>
-        <div class="h-ex-txt"><p class="h-ex-kind">Restaurant · entreprise fictive</p><h3>La Table du Marché</h3><p>Une carte filtrable par régime, le menu du midi toujours à jour, et la réservation de table en deux clics.</p><span class="h-link">Visiter le site</span></div>
+        <div class="h-ex-img"><div class="h-ex-bar" aria-hidden="true"><i></i><i></i><i></i><span>latabledumarche.be</span></div><div class="h-ex-shot"><img src="/assets/img/ex/restaurant.webp" alt="Capture de la page d'accueil du site d'exemple" width="960" height="2700" loading="lazy" decoding="async"></div></div>
+        <div class="h-ex-txt"><p class="h-ex-kind">Restaurant · entreprise fictive</p><h3>La Table du Marché</h3><p>Une carte filtrable par régime, le menu du midi toujours à jour, et la réservation de table en deux clics.</p><span class="h-link">Visiter le site</span><p class="h-ex-hint">Survolez la capture pour la faire défiler.</p></div>
       </a>
       </div>
     </div>

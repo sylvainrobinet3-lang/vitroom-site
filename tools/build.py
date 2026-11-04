@@ -116,7 +116,9 @@ def page_html(route, fname, url, title, desc, opt):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
-{canonical}{robots}{hash_redirect}<meta name="theme-color" content="#0B1F3C">
+{canonical}{robots}{hash_redirect}<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F6F8FC">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#081428">
+<meta name="color-scheme" content="light dark">
 <link rel="preload" href="/assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css?v={V_CSS}">
