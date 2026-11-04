@@ -82,7 +82,7 @@ JSONLD = {
     "logo": SITE + "/icon-512.png", "image": SITE + "/assets/img/og-vitroom.png",
     "description": "Création de sites internet sur mesure pour artisans, commerçants et indépendants.",
     "telephone": "+32470537008", "email": "contact@vitroom.be",
-    "areaServed": {"@type": "Country", "name": "Belgique"}, "founder": {"@type": "Person", "name": "Sylvain Robinet"},
+    "areaServed": [{"@type": "Country", "name": "Belgique"}, {"@type": "Country", "name": "France"}], "founder": {"@type": "Person", "name": "Sylvain Robinet"},
 }
 
 def page_html(route, fname, url, title, desc, opt):
@@ -118,7 +118,7 @@ def page_html(route, fname, url, title, desc, opt):
 <meta name="description" content="{e(desc)}">
 {canonical}{robots}{hash_redirect}<meta name="theme-color" content="#0B1F3C">
 <link rel="preload" href="/assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/belleza-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css?v={V_CSS}">
 {demo_css}<link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
