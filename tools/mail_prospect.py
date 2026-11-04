@@ -17,10 +17,9 @@ On ne dit jamais « je crée des sites » : on parle de ce que ça change pour l
 """
 import html, json, sys
 
-SIGN_TXT = "Bien à vous,\nSylvain Robinet\nVitroom · Création de sites internet\nwww.vitroom.be\ncontact@vitroom.be\n{tel}"
+SIGN_TXT = "Bien à vous,\nSylvain Robinet\nVitroom · Création de sites internet\nwww.vitroom.be\n{tel}"
 SIGN_HTML = ('<p>Bien à vous,<br>Sylvain Robinet<br>Vitroom · Création de sites internet<br>'
              '<a href="https://vitroom.be">www.vitroom.be</a><br>'
-             '<a href="mailto:contact@vitroom.be">contact@vitroom.be</a><br>'
              '<a href="tel:+32470537008">{tel}</a></p>')
 DELAI = "3 à 5 jours"
 
@@ -73,7 +72,7 @@ def build(f):
     if p.get("benefice"):
         paras.append(p["benefice"])
     paras += [
-        f"Je vous appelle {jour} pour avoir votre avis (15 minutes au téléphone ou en visio), ou répondez simplement à ce mail.",
+        f"Je peux vous appeler {jour} pour avoir votre avis (15 minutes au téléphone ou en visio), ou vous pouvez simplement répondre à ce mail.",
         NON,
     ]
     esc = lambda s: html.escape(s, quote=False)
