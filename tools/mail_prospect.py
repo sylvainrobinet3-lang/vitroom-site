@@ -50,6 +50,8 @@ def pitch(p):
     return PITCH_DEFAUT
 
 
+MAQUETTE = ("Ce n'est qu'une maquette simple, pour vous donner une première image : textes, photos, couleurs et pages "
+            "se personnalisent entièrement à votre goût.")
 NON = "Si ce n'est pas le bon moment, un simple « non merci » suffit : je ne vous recontacterai pas."
 
 
@@ -69,6 +71,7 @@ def build(f):
         f"Et vous ne prenez aucun risque : vous voyez votre site avant de vous engager. J'ai déjà préparé celui {de}{nom}, "
         f"à partir des informations publiques : {lien}",
     ]
+    paras.append(MAQUETTE)
     if p.get("benefice"):
         paras.append(p["benefice"])
     paras += [
