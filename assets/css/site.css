@@ -884,3 +884,122 @@ button, .btn, .nav a, .h-ex, .demo-card, [role="button"] { touch-action: manipul
 button, .btn, .h-call, .mcall a { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
 input, textarea, select { font-size: max(16px, 1em); }
 .h-ex:active, .demo-card:active { transform: scale(0.99); transition: transform 120ms var(--ease-out); }
+
+/* =====================================================================
+   COULEUR ET ILLUSTRATIONS — 04-11-2026
+   Les couleurs viennent toutes du logo : marine, lavande, dégradé violet,
+   plus le bleu électrique de l'action. Une bande de couleur par section.
+   ===================================================================== */
+:root {
+  --lav: #EEF1FA; --lav-2: #E3E7F8; --vio-a: #4744B0; --vio-b: #9053BB;
+  --tone-vert: #E9F1EA; --tone-vert-ink: #2F5D3A;
+  --tone-sarcelle: #E5F0F0; --tone-sarcelle-ink: #13434A;
+  --tone-bordeaux: #F5E8E9; --tone-bordeaux-ink: #7A1F2B;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --lav: #0F1D38; --lav-2: #142548;
+    --tone-vert: #12261A; --tone-vert-ink: #9FD1AE; --tone-sarcelle: #0E2629; --tone-sarcelle-ink: #8ECFD6; --tone-bordeaux: #2A1216; --tone-bordeaux-ink: #F0A9B3; }
+}
+:root[data-theme="dark"] { --lav: #0F1D38; --lav-2: #142548;
+  --tone-vert: #12261A; --tone-vert-ink: #9FD1AE; --tone-sarcelle: #0E2629; --tone-sarcelle-ink: #8ECFD6; --tone-bordeaux: #2A1216; --tone-bordeaux-ink: #F0A9B3; }
+
+/* Halos lents dans la scène d'ouverture (ambiance, jamais au premier plan) */
+.h-hero::before { display: none; }
+.h-orb { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(10px); opacity: .55; }
+.h-orb-a { width: 620px; height: 620px; right: -180px; top: -220px; background: radial-gradient(closest-side, rgba(144,83,187,.75), rgba(144,83,187,0)); }
+.h-orb-b { width: 520px; height: 520px; left: -200px; bottom: -260px; background: radial-gradient(closest-side, rgba(59,99,255,.6), rgba(59,99,255,0)); }
+@media (prefers-reduced-motion: no-preference) {
+  .h-orb-a { animation: h-drift-a 22s ease-in-out infinite alternate; }
+  .h-orb-b { animation: h-drift-b 26s ease-in-out infinite alternate; }
+}
+@keyframes h-drift-a { to { transform: translate(-90px, 70px) scale(1.08); } }
+@keyframes h-drift-b { to { transform: translate(110px, -60px) scale(1.12); } }
+.h-hero-grid { z-index: 1; }
+
+/* Bande des métiers : pour qui Vitroom travaille, en continu */
+.h-band { background: linear-gradient(90deg, var(--vio-a), #3B63FF 55%, var(--vio-b)); color: #fff; overflow: hidden; padding-block: 16px; }
+.h-band-track { display: flex; width: max-content; }
+.h-band ul { list-style: none; margin: 0; padding: 0; display: flex; flex: none; }
+.h-band li { font-family: var(--display); font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; white-space: nowrap; display: flex; align-items: center; padding-right: 30px; }
+.h-band li::after { content: ""; width: 7px; height: 7px; border-radius: 2px; background: rgba(255,255,255,.55); margin-left: 30px; transform: rotate(45deg); }
+@media (prefers-reduced-motion: no-preference) {
+  .h-band-track { animation: h-marquee 48s linear infinite; }
+  @media (hover: hover) and (pointer: fine) { .h-band:hover .h-band-track { animation-play-state: paused; } }
+}
+@keyframes h-marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .h-band-track { flex-wrap: wrap; width: auto; } .h-band ul[aria-hidden] { display: none; } .h-band ul { flex-wrap: wrap; justify-content: center; row-gap: 6px; } }
+
+/* Avant / après sur fond lavande */
+.h-ba { background: var(--lav); }
+.h-ba .ba-frame { box-shadow: 0 30px 60px -30px rgba(11,31,60,.45); border: 0; }
+
+/* Ce qui est compris : chaque point a son illustration, qui se dessine à l'arrivée */
+.h-inclus { background: var(--surface); }
+.h-list dt { display: grid; gap: 14px; justify-items: start; }
+.h-ico { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, var(--vio-a), var(--vio-b)); box-shadow: 0 10px 22px -12px rgba(71,68,176,.9); }
+.h-list > div:nth-child(3n+2) .h-ico { background: linear-gradient(135deg, #2449E0, #4744B0); }
+.h-list > div:nth-child(3n) .h-ico { background: linear-gradient(135deg, #9053BB, #C2609F); }
+@media (prefers-reduced-motion: no-preference) {
+  .h-inclus.is-armed .h-ico path, .h-inclus.is-armed .h-ico rect, .h-inclus.is-armed .h-ico circle { stroke-dasharray: 80; stroke-dashoffset: 80; }
+  .h-inclus.is-in .h-ico path, .h-inclus.is-in .h-ico rect, .h-inclus.is-in .h-ico circle { animation: h-draw 900ms var(--ease-out) forwards; }
+  .h-inclus.is-in .h-list > div:nth-child(2) .h-ico * { animation-delay: 90ms; }
+  .h-inclus.is-in .h-list > div:nth-child(3) .h-ico * { animation-delay: 180ms; }
+  .h-inclus.is-in .h-list > div:nth-child(4) .h-ico * { animation-delay: 270ms; }
+  .h-inclus.is-in .h-list > div:nth-child(5) .h-ico * { animation-delay: 360ms; }
+  .h-inclus.is-in .h-list > div:nth-child(6) .h-ico * { animation-delay: 450ms; }
+  .h-ico .pulse { animation: h-pulse 2.4s ease-in-out infinite !important; stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
+  .h-ico .drop { animation: h-drop 2.4s var(--ease-in-out) infinite !important; stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
+}
+@keyframes h-draw { to { stroke-dashoffset: 0; } }
+@keyframes h-pulse { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+@keyframes h-drop { 0% { transform: translateY(-3px); opacity: 0; } 40%, 70% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(2px); opacity: 0; } }
+
+/* Étapes : bande violette, ligne de progression qui se remplit d'étape en étape */
+.h-steps-sec { background: linear-gradient(135deg, #1A1B5E, var(--vio-a) 45%, var(--vio-b)); color: #fff; position: relative; overflow: hidden; }
+.h-steps-sec h2 { color: #fff; }
+.h-steps-sec .h-steps p { color: rgba(255,255,255,.82); }
+.h-steps-wrap { position: relative; margin-top: 44px; }
+.h-steps { margin-top: 0; }
+.h-steps li { position: relative; z-index: 1; }
+.h-steps li::before { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-size: 1.5rem; color: var(--vio-a); background: #fff; box-shadow: 0 0 0 6px rgba(255,255,255,.14); transition: background-color 300ms ease, color 300ms ease; }
+.h-steps-line { position: absolute; left: 28px; right: calc(25% - 28px); top: 27px; height: 2px; background: rgba(255,255,255,.22); }
+.h-steps-line i { position: absolute; inset: 0; background: #fff; transform-origin: left; transform: scaleX(0); }
+@media (prefers-reduced-motion: no-preference) {
+  .h-steps-sec.is-in .h-steps-line i { transition: transform 1600ms var(--ease-in-out); transform: scaleX(1); }
+  .h-steps-sec.is-armed:not(.is-in) .h-steps li:not(:first-child)::before { background: rgba(255,255,255,.18); color: #fff; }
+  .h-steps-sec.is-in .h-steps li::before { transition-delay: calc(var(--i, 0) * 480ms); }
+}
+@media (prefers-reduced-motion: reduce) { .h-steps-line i { transform: none; } }
+.h-steps li:nth-child(2) { --i: 1; } .h-steps li:nth-child(3) { --i: 2; } .h-steps li:nth-child(4) { --i: 3; }
+@media (max-width: 980px) { .h-steps-line { display: none; } }
+
+/* Exemples : chaque carte prend la couleur du site qu'elle montre */
+.h-exs { background: var(--paper); }
+.h-ex[data-tone] { border-color: transparent; }
+.h-ex[data-tone="vert"] { background: var(--tone-vert); --tone: var(--tone-vert-ink); }
+.h-ex[data-tone="sarcelle"] { background: var(--tone-sarcelle); --tone: var(--tone-sarcelle-ink); }
+.h-ex[data-tone="bordeaux"] { background: var(--tone-bordeaux); --tone: var(--tone-bordeaux-ink); }
+.h-ex[data-tone] .h-ex-kind, .h-ex[data-tone] .h-link { color: var(--tone); }
+.h-ex[data-tone] .h-ex-txt h3 { color: var(--tone); }
+@media (hover: hover) and (pointer: fine) { .h-ex[data-tone]:hover { border-color: var(--tone); } }
+.h-ex:nth-child(even) { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+.h-ex:nth-child(even) .h-ex-img { order: 2; }
+@media (max-width: 640px) { .h-ex:nth-child(even) { grid-template-columns: minmax(0, 1fr); } .h-ex:nth-child(even) .h-ex-img { order: 0; } }
+
+/* Qui : lavande, outils sur cartes blanches */
+.h-who { background: var(--lav); }
+.h-tools { gap: 10px; }
+.h-tools a, .h-tools a:last-child { border: 0; background: var(--surface); border-radius: var(--r-m); padding: 18px 20px; transition: transform 160ms var(--ease-out); }
+.h-tools a:active { transform: scale(0.98); }
+
+/* Fin de page : dégradé du logo */
+.h-end { background: radial-gradient(120% 140% at 100% 0%, rgba(144,83,187,.55), transparent 55%), radial-gradient(90% 120% at 0% 100%, rgba(59,99,255,.35), transparent 60%), var(--stage); }
+
+/* Pages intérieures : en-tête en couleur plutôt que blanc */
+.page-intro { position: relative; overflow: hidden; background: radial-gradient(70% 140% at 100% 0%, rgba(144,83,187,.22), transparent 60%), radial-gradient(60% 120% at 0% 100%, rgba(59,99,255,.16), transparent 60%), var(--lav); margin-bottom: clamp(24px, 4vw, 48px); padding-block: clamp(48px, 7vw, 88px) clamp(36px, 5vw, 60px); }
+.page-intro .eyebrow { color: var(--vio-a); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .page-intro .eyebrow { color: #B9A8F0; } }
+:root[data-theme="dark"] .page-intro .eyebrow { color: #B9A8F0; }
+.page:not(.demo) .ico { background: linear-gradient(135deg, var(--vio-a), var(--vio-b)); color: #fff; box-shadow: 0 10px 22px -12px rgba(71,68,176,.9); }
+.page:not(.demo) .svc-row:nth-child(3n+2) .ico { background: linear-gradient(135deg, #2449E0, #4744B0); }
+.page:not(.demo) .svc-row:nth-child(3n) .ico { background: linear-gradient(135deg, #9053BB, #C2609F); }

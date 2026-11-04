@@ -742,3 +742,14 @@
   });
   window.addEventListener('resize', function () { Array.prototype.forEach.call(document.querySelectorAll('.h-ex-shot img, .thumb.shot img'), fit); });
 })();
+
+/* ---------- Arrivée des sections illustrées (une fois) ---------- */
+(function () {
+  var els = document.querySelectorAll('.h-inclus, .h-steps-sec');
+  if (!els.length || !('IntersectionObserver' in window)) return;
+  Array.prototype.forEach.call(els, function (el) { el.classList.add('is-armed'); });
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  }, { threshold: 0.35 });
+  Array.prototype.forEach.call(els, function (el) { io.observe(el); });
+})();
