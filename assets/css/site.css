@@ -908,22 +908,16 @@ input, textarea, select { font-size: max(16px, 1em); }
 .h-orb { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(10px); opacity: .55; }
 .h-orb-a { width: 620px; height: 620px; right: -180px; top: -220px; background: radial-gradient(closest-side, rgba(144,83,187,.75), rgba(144,83,187,0)); }
 .h-orb-b { width: 520px; height: 520px; left: -200px; bottom: -260px; background: radial-gradient(closest-side, rgba(59,99,255,.6), rgba(59,99,255,0)); }
-@media (prefers-reduced-motion: no-preference) {
-  .h-orb-a { animation: h-drift-a 22s ease-in-out infinite alternate; }
-  .h-orb-b { animation: h-drift-b 26s ease-in-out infinite alternate; }
-}
-@keyframes h-drift-a { to { transform: translate(-90px, 70px) scale(1.08); } }
-@keyframes h-drift-b { to { transform: translate(110px, -60px) scale(1.12); } }
 .h-hero-grid { z-index: 1; }
 
 /* Bande des métiers : pour qui Vitroom travaille, en continu */
-.h-band { background: linear-gradient(90deg, var(--vio-a), #3B63FF 55%, var(--vio-b)); color: #fff; overflow: hidden; padding-block: 16px; }
+.h-band { background: linear-gradient(90deg, #1A1B5E, var(--vio-a) 50%, #3A2A7A); color: #E3E7F8; overflow: hidden; padding-block: 14px; border-top: 1px solid rgba(255,255,255,.08); }
 .h-band-track { display: flex; width: max-content; }
 .h-band ul { list-style: none; margin: 0; padding: 0; display: flex; flex: none; }
-.h-band li { font-family: var(--display); font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; white-space: nowrap; display: flex; align-items: center; padding-right: 30px; }
+.h-band li { font-family: var(--body); font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; white-space: nowrap; display: flex; align-items: center; padding-right: 30px; }
 .h-band li::after { content: ""; width: 7px; height: 7px; border-radius: 2px; background: rgba(255,255,255,.55); margin-left: 30px; transform: rotate(45deg); }
 @media (prefers-reduced-motion: no-preference) {
-  .h-band-track { animation: h-marquee 48s linear infinite; }
+  .h-band-track { animation: h-marquee 70s linear infinite; }
   @media (hover: hover) and (pointer: fine) { .h-band:hover .h-band-track { animation-play-state: paused; } }
 }
 @keyframes h-marquee { to { transform: translateX(-50%); } }
@@ -947,12 +941,8 @@ input, textarea, select { font-size: max(16px, 1em); }
   .h-inclus.is-in .h-list > div:nth-child(4) .h-ico * { animation-delay: 270ms; }
   .h-inclus.is-in .h-list > div:nth-child(5) .h-ico * { animation-delay: 360ms; }
   .h-inclus.is-in .h-list > div:nth-child(6) .h-ico * { animation-delay: 450ms; }
-  .h-ico .pulse { animation: h-pulse 2.4s ease-in-out infinite !important; stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
-  .h-ico .drop { animation: h-drop 2.4s var(--ease-in-out) infinite !important; stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
 }
 @keyframes h-draw { to { stroke-dashoffset: 0; } }
-@keyframes h-pulse { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
-@keyframes h-drop { 0% { transform: translateY(-3px); opacity: 0; } 40%, 70% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(2px); opacity: 0; } }
 
 /* Étapes : bande violette, ligne de progression qui se remplit d'étape en étape */
 .h-steps-sec { background: linear-gradient(135deg, #1A1B5E, var(--vio-a) 45%, var(--vio-b)); color: #fff; position: relative; overflow: hidden; }
